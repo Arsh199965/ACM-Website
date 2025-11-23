@@ -62,7 +62,7 @@ export default function Events() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen w-full bg-black text-white py-16 px-6 md:px-12 lg:px-24 flex justify-center mb-[40vh]"
+      className="relative min-h-screen w-full bg-black text-white py-16 px-6 md:px-12 lg:px-24 flex justify-center md:mb-[20vh] mb-[35vh]"
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* Header */}

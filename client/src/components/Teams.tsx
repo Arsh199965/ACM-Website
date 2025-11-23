@@ -112,9 +112,30 @@ export default function Teams() {
           </AnimatedText>
         </div>
 
-        <div ref={stackRef} className="relative min-h-[230vh]">
+        {/* Mobile simple layout */}
+        <div className="space-y-12 md:hidden">
+          <div className="rounded-4xl border border-white/5 bg-[#08080c] px-6 py-10">
+            <DomainSection
+              title="Technical Domains"
+              gridCols="grid-cols-1"
+              teams={techTeams}
+              centerHeading
+            />
+          </div>
+          <div className="rounded-4xl border border-white/5 bg-[#0b0b12] px-6 py-10">
+            <DomainSection
+              title="Creative Domains"
+              gridCols="grid-cols-1"
+              teams={creativeTeams}
+              centerHeading
+            />
+          </div>
+        </div>
+
+        {/* Desktop stacked layout */}
+        <div ref={stackRef} className="relative min-h-[230vh] hidden md:block">
           <motion.div
-            style={{boxShadow: techShadow }}
+            style={{ boxShadow: techShadow }}
             className="sticky top-24 z-20 rounded-4xl border border-white/5 bg-[#08080c] px-10 md:px-14 py-12 md:py-16"
           >
             <DomainSection
@@ -144,18 +165,28 @@ function DomainSection({
   title,
   teams,
   gridCols,
+  centerHeading = false,
 }: {
   title: string;
   teams: TeamProps[];
   gridCols: string;
+  centerHeading?: boolean;
 }) {
   return (
     <div>
       <AnimatedText className="mb-12">
-        <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
+        <h2
+          className={`text-4xl md:text-6xl font-bold tracking-tight text-white mb-6 ${
+            centerHeading ? "text-center" : ""
+          }`}
+        >
           {title}
         </h2>
-        <div className="h-0.5 w-24 bg-acm-blue rounded-full mx-auto md:mx-0" />
+        <div
+          className={`h-0.5 w-24 bg-acm-blue rounded-full ${
+            centerHeading ? "mx-auto" : "md:mx-0"
+          }`}
+        />
       </AnimatedText>
 
       <div className={`grid ${gridCols} gap-x-10 gap-y-12 pt-6`}>
