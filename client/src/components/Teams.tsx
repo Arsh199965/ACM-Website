@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import {
   Brain,
   Code,
@@ -12,6 +12,7 @@ import {
   LucideIcon,
 } from "lucide-react";
 import AnimatedText from "./AnimatedText";
+import { useRef } from "react";
 
 interface TeamProps {
   number: string;
@@ -74,42 +75,95 @@ const creativeTeams: TeamProps[] = [
 ];
 
 export default function Teams() {
-  return (
-    <section className="w-full bg-black text-white py-8 px-6 md:px-12 lg:px-16 flex justify-center">
-      <div className="max-w-[1800px] mx-auto space-y-12">
-        {/* Tech Teams */}
-        <div className="mb-4 h-[105vh]">
-          <AnimatedText className="mb-12">
-            <h2 className="text-5xl md:text-7xl font-title font-bold text-white mb-6 tracking-tight">
-              Technical Domains
-            </h2>
-            <div className="h-[2px] w-24 bg-acm-blue rounded-full" />
-          </AnimatedText>
+  const stackRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: stackRef,
+    offset: ["start start", "end end"],
+  });
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-12 pt-12">
-            {techTeams.map((team, index) => (
-              <TeamCard key={index} {...team} delay={index * 0.1} />
-            ))}
-          </div>
+  const creativeY = useTransform(
+    scrollYProgress,
+    [0, 0.35, 0.6, 1],
+    [400, 140, 160, 160]
+  );
+  const creativeShadow = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0px 120px 160px rgba(0,0,0,0.35)", "0px 40px 90px rgba(0,0,0,0.55)"]
+  );
+  // const techScale = useTransform(scrollYProgress, [0, 1], [1, 0.97]);
+  const techShadow = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0px 80px 120px rgba(0,0,0,0.35)", "0px 30px 60px rgba(0,0,0,0.6)"]
+  );
+
+  return (
+    <section className="w-full bg-black text-white py-24 px-6 md:px-12 lg:px-16 flex justify-center mb-[40vh]">
+      <div className="max-w-[1600px] w-full">
+        <div className="text-center mb-16">
+          <AnimatedText>
+            <p className="text-sm md:text-base uppercase tracking-[0.4em] text-gray-500 mb-4">
+              The Collective
+            </p>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+              Teams that power the narrative
+            </h2>
+          </AnimatedText>
         </div>
 
-        {/* Creative Teams */}
-        <div className="mb-4 h-[105vh]">
-          <AnimatedText className="mb-12">
-            <h2 className="text-5xl md:text-7xl font-display font-bold text-white mb-6 tracking-tight">
-              Creative Domains
-            </h2>
-            <div className="h-[2px] w-24 bg-acm-blue rounded-full" />
-          </AnimatedText>
+        <div ref={stackRef} className="relative min-h-[230vh]">
+          <motion.div
+            style={{boxShadow: techShadow }}
+            className="sticky top-24 z-20 rounded-4xl border border-white/5 bg-[#08080c] px-10 md:px-14 py-12 md:py-16"
+          >
+            <DomainSection
+              title="Technical Domains"
+              gridCols="grid-cols-1 md:grid-cols-3"
+              teams={techTeams}
+            />
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-12 pt-12">
-            {creativeTeams.map((team, index) => (
-              <TeamCard key={index} {...team} delay={index * 0.1} />
-            ))}
-          </div>
+          <motion.div
+            style={{ y: creativeY, boxShadow: creativeShadow }}
+            className="sticky top-24 z-30 mt-16 rounded-4xl border border-white/5 bg-[#08080c] px-10 md:px-14 py-12 md:py-16"
+          >
+            <DomainSection
+              title="Creative Domains"
+              gridCols="grid-cols-1 md:grid-cols-2 lg:grid-cols-4"
+              teams={creativeTeams}
+            />
+          </motion.div>
         </div>
       </div>
     </section>
+  );
+}
+
+function DomainSection({
+  title,
+  teams,
+  gridCols,
+}: {
+  title: string;
+  teams: TeamProps[];
+  gridCols: string;
+}) {
+  return (
+    <div>
+      <AnimatedText className="mb-12">
+        <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
+          {title}
+        </h2>
+        <div className="h-0.5 w-24 bg-acm-blue rounded-full mx-auto md:mx-0" />
+      </AnimatedText>
+
+      <div className={`grid ${gridCols} gap-x-10 gap-y-12 pt-6`}>
+        {teams.map((team, index) => (
+          <TeamCard key={team.title} {...team} delay={index * 0.12} />
+        ))}
+      </div>
+    </div>
   );
 }
 
@@ -136,7 +190,7 @@ function TeamCard({
             {number}
           </span>
         </div>
-        <div className="-translate-y-6 bg-black">
+        <div className="-translate-y-6 bg-[#08080c]">
           {/* Divider Line */}
           <div className="w-full h-px bg-linear-to-r from-gray-800 via-gray-500 to-gray-800 mb-8 group-hover:bg-gray-700 transition-colors duration-500" />
 

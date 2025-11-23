@@ -52,9 +52,9 @@ export default function Navbar() {
       </div>
 
       {/* Mobile */}
-      <div className="flex w-full flex-col rounded-2xl border border-white/10 bg-[#181818]/95 text-white shadow-[0_10px_35px_rgba(0,0,0,0.45)] backdrop-blur-xl md:hidden">
-        <div className="flex items-center justify-between px-4 py-3">
-          <div className="relative h-8 w-28">
+      <div className="flex w-full flex-col rounded-2xl border border-white/10 bg-[#181818]/45 text-white shadow-[0_10px_35px_rgba(0,0,0,0.45)] backdrop-blur-md md:hidden">
+        <div className="flex items-center justify-between px-1 py-1">
+          <div className="relative h-8 w-12">
             <Image
               src="/ACM_Logo_white_text.png"
               alt="ACM logo"
@@ -65,7 +65,7 @@ export default function Navbar() {
             />
           </div>
           <button
-            className="rounded-full border border-white/20 p-2"
+            className="rounded-xl border border-white/20 p-2"
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label="Toggle navigation"
           >
@@ -87,11 +87,7 @@ export default function Navbar() {
                 </li>
               ))}
             </ul>
-            <div className="mt-4 flex items-center justify-between">
-              <button className="rounded-lg bg-acm-blue px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-black">
-                Contact
-              </button>
-            </div>
+        
           </div>
         )}
       </div>
