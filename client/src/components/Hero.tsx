@@ -106,12 +106,12 @@ export default function Hero() {
               width: "700px",
               height: "700px",
               background:
-                "radial-gradient(circle, rgba(0, 163, 255, 0.4) 0%, transparent 70%)",
+                "radial-gradient(circle, rgba(0, 163, 255, 0.4) 20%, transparent 70%)",
               filter: "blur(120px)",
             }}
             animate={{
-              x: ["70%", "10%", "70%"],
-              y: ["60%", "20%", "60%"],
+              x: ["-70%", "10%", "-70%"],
+              y: ["-60%", "10%", "-60%"],
             }}
             transition={{
               duration: 30,
@@ -129,8 +129,8 @@ export default function Hero() {
               filter: "blur(110px)",
             }}
             animate={{
-              x: ["40%", "60%", "40%"],
-              y: ["80%", "30%", "80%"],
+              x: ["-50%", "60%", "-50%"],
+              y: ["-50%", "70%", "-50%"],
             }}
             transition={{
               duration: 20,
@@ -142,14 +142,14 @@ export default function Hero() {
       )}
 
       {/* Main Content */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-20">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 py-12">
         <div className="flex flex-col items-center text-center">
           {/* Logo and Supported Tools Badge */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-12 flex items-center gap-4"
+            className="mb-8 flex items-center gap-4"
           >
             <Image
               src="/ACM_Logo_white_text.png"
@@ -168,15 +168,17 @@ export default function Hero() {
           </motion.div>
 
           {/* Main Headline */}
-          <div className="mb-8 max-w-6xl">
+          <div className="mb-6 max-w-6xl">
             <AnimatedText delay={0.4}>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] tracking-tight mb-4">
-                <span className="text-white">The Next Era of</span>
+              <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold font-display leading-[1.1] tracking-tight mb-4">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-gray-100 to-gray-300">
+                  The Next Era of
+                </span>
               </h1>
             </AnimatedText>
 
             <AnimatedText delay={0.6}>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display xl:text-7xl font-bold leading-[1.1] tracking-tight">
                 <span className="bg-linear-to-r from-acm-blue via-acm-blue-light to-acm-blue bg-clip-text text-transparent">
                   GGSIPU EDC ACM
                 </span>
@@ -184,15 +186,17 @@ export default function Hero() {
             </AnimatedText>
 
             <AnimatedText delay={0.8}>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight mt-2">
-                <span className="text-white">Student Chapter</span>
+              <h1 className="text-4xl md:text-5xl font-display lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight mt-2">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-gray-100 to-gray-200">
+                  Student Chapter
+                </span>
               </h1>
             </AnimatedText>
           </div>
 
           {/* Description */}
-          <AnimatedText delay={1.0} className="max-w-3xl mb-12">
-            <p className="text-base md:text-lg lg:text-xl text-gray-400 leading-relaxed">
+          <AnimatedText delay={1.0} className="max-w-3xl mb-8">
+            <p className="text-sm md:text-md lg:text-lg text-gray-400 leading-relaxed">
               Empowering students to innovate, collaborate, and lead in the
               world of computing— transforming ideas into impact through
               cutting-edge research, hands-on projects, and a thriving technical
@@ -205,10 +209,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-16"
+            className="mb-10"
           >
-            <button className="group relative px-10 md:px-12 py-4 md:py-5 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-acm-blue rounded-full overflow-hidden transition-all duration-500">
-              <span className="relative text-white font-medium tracking-wide text-sm md:text-base">
+            <button className="group relative px-2 md:px-4 py-2 md:py-4 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-acm-blue rounded-full overflow-hidden transition-all duration-500">
+              <span className="relative text-white font-medium tracking-wide text-xs md:text-sm">
                 Join Our Community
               </span>
             </button>

@@ -17,8 +17,8 @@ export default function Navbar() {
   return (
     <nav className="fixed top-4 left-1/2 z-50 w-full max-w-[1200px] -translate-x-1/2 px-4">
       {/* Desktop */}
-      <div className="hidden w-full overflow-hidden rounded-2xl border border-white/10 bg-[#181818]/95 text-white shadow-[0_20px_50px_rgba(0,0,0,0.4)] backdrop-blur-xl md:flex">
-        <div className="flex items-center border-r border-white/5 bg-acm-blue/35 px-4 py-4">
+      <div className="hidden w-full overflow-hidden rounded-2xl border border-white/10 bg-[#181818]/45 text-white shadow-[0_20px_50px_rgba(0,0,0,0.4)] backdrop-blur-md md:flex">
+        <div className="flex items-center border-r border-white/5 bg-acm-blue/35 px-2">
           <div className="relative h-8 w-16">
             <Image
               src="/ACM_Logo_white_text.png"
@@ -29,8 +29,8 @@ export default function Navbar() {
               priority
             />
           </div>
-          <span className="rounded-full mx-12 py-12 text-[10px] font-semibold  text-white/70">
-           GGSIPU EDC ACM  
+          <span className="rounded-full text-[10px] font-semibold  text-white/70">
+            GGSIPU EDC ACM
           </span>
         </div>
 
@@ -38,7 +38,7 @@ export default function Navbar() {
           {NAV_ITEMS.map((item) => (
             <li
               key={item.label}
-              className="flex flex-1 min-w-[140px] items-center justify-center gap-3 border-r border-white/5 px-6 py-4 text-white/60 transition hover:bg-white/5 hover:text-white"
+              className="flex flex-1 min-w-[140px] items-center justify-center gap-3 border-r border-white/5 px-6 py-3 text-white/60 transition hover:bg-white/5 hover:text-white"
             >
               <span className="font-mono text-[11px] tracking-[0.2em]">
                 {item.number}
@@ -49,10 +49,6 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
-
-
-
-       
       </div>
 
       {/* Mobile */}
@@ -82,14 +78,16 @@ export default function Navbar() {
           <div className="border-t border-white/10 px-4 py-3">
             <ul className="space-y-3 text-sm uppercase tracking-[0.25em]">
               {NAV_ITEMS.map((item) => (
-                <li key={item.label} className="flex items-center justify-between text-white/70">
+                <li
+                  key={item.label}
+                  className="flex items-center justify-between text-white/70"
+                >
                   <span className="font-mono text-[11px]">{item.number}</span>
                   <span className="font-semibold">{item.label}</span>
                 </li>
               ))}
             </ul>
             <div className="mt-4 flex items-center justify-between">
-              
               <button className="rounded-lg bg-acm-blue px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-black">
                 Contact
               </button>
