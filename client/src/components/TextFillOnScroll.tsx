@@ -13,7 +13,7 @@ export default function TextFillOnScroll({
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start 0.7", "end 0.6"],
+    offset: ["start 0.8", "end 0.5"],
   });
 
   const words = children.split(" ");

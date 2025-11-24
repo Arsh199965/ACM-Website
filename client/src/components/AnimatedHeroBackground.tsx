@@ -9,6 +9,15 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
+type ParticleConfig = {
+  left: number;
+  top: number;
+  duration: number;
+  delay: number;
+};
+
+const particleConfigs = createParticleConfigs(20, 0x539ef1);
+
 export default function AnimatedHeroBackground() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
@@ -134,22 +143,22 @@ export default function AnimatedHeroBackground() {
       </motion.div>
 
       {/* Ambient particles */}
-      {Array.from({ length: 20 }).map((_, i) => (
+      {particleConfigs.map((particle, i) => (
         <motion.div
           key={i}
           className="absolute w-1 h-1 bg-acm-blue/30 rounded-full"
           style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
+            left: `${particle.left}%`,
+            top: `${particle.top}%`,
           }}
           animate={{
             y: [0, -100, 0],
             opacity: [0, 1, 0],
           }}
           transition={{
-            duration: 3 + Math.random() * 4,
+            duration: particle.duration,
             repeat: Infinity,
-            delay: Math.random() * 5,
+            delay: particle.delay,
             ease: "easeInOut",
           }}
         />
@@ -172,4 +181,23 @@ export default function AnimatedHeroBackground() {
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
     </div>
   );
+}
+
+function createParticleConfigs(count: number, seed: number): ParticleConfig[] {
+  const random = mulberry32(seed);
+  return Array.from({ length: count }).map(() => ({
+    left: random() * 100,
+    top: random() * 100,
+    duration: 3 + random() * 4,
+    delay: random() * 5,
+  }));
+}
+
+function mulberry32(seed: number) {
+  return () => {
+    let t = (seed += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
 }
