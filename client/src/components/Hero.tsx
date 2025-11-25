@@ -51,7 +51,7 @@ export default function Hero() {
                 height: square.size,
                 left: `${square.x}%`,
                 top: `${square.y}%`,
-                borderRadius: "4px",
+                borderRadius: "8px",
               }}
               animate={{
                 y: [0, -80, 0],
@@ -87,7 +87,7 @@ export default function Hero() {
               width: "800px",
               height: "800px",
               background:
-                "radial-gradient(circle, rgba(0, 133, 202, 0.5) 0%, transparent 70%)",
+                "radial-gradient(circle, rgba(0, 133, 202, 0.5) 0%, transparent 50%)",
               filter: "blur(100px)",
             }}
             animate={{
@@ -106,7 +106,7 @@ export default function Hero() {
               width: "700px",
               height: "700px",
               background:
-                "radial-gradient(circle, rgba(0, 163, 255, 0.4) 20%, transparent 70%)",
+                "radial-gradient(circle, rgba(0, 163, 255, 0.4) 20%, transparent 50%)",
               filter: "blur(120px)",
             }}
             animate={{
@@ -125,7 +125,7 @@ export default function Hero() {
               width: "600px",
               height: "600px",
               background:
-                "radial-gradient(circle, rgba(0, 133, 202, 0.35) 0%, transparent 70%)",
+                "radial-gradient(circle, rgba(0, 133, 202, 0.35) 0%, transparent 50%)",
               filter: "blur(110px)",
             }}
             animate={{

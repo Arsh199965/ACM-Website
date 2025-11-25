@@ -117,7 +117,7 @@ export default function AnimatedHeroBackground() {
         }}
       >
         <div className="relative w-48 h-48 md:w-64 md:h-64">
-          <div className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-600/20 via-pink-600/20 to-acm-blue/20 blur-2xl" />
+          <div className="absolute inset-0 rounded-full bg-linear-to-br from-purple-600/20 via-pink-600/20 to-acm-blue/20 blur-2xl" />
           <motion.div
             className="absolute inset-4 rounded-full"
             style={{
@@ -146,7 +146,7 @@ export default function AnimatedHeroBackground() {
       {particleConfigs.map((particle, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 bg-acm-blue/30 rounded-full"
+          className="absolute w-1 h-1 bg-acm-blue rounded-full"
           style={{
             left: `${particle.left}%`,
             top: `${particle.top}%`,
