@@ -25,7 +25,10 @@ type ParticleConfig = {
   delay: number;
 };
 
-const heroParticleConfigs: ParticleConfig[] = createParticleConfigs(20, 0x1f2a3c);
+const heroParticleConfigs: ParticleConfig[] = createParticleConfigs(
+  20,
+  0x1f2a3c
+);
 
 export default function AboutPage() {
   return (

@@ -6,7 +6,7 @@ import { useState } from "react";
 const NAV_ITEMS = [
   { label: "About", number: "1.0", href: "/about" },
   { label: "Events", number: "2.0", href: "#" },
-  { label: "Team", number: "3.0", href: "#" },
+  { label: "Team", number: "3.0", href: "/teams" },
   { label: "Clubs", number: "4.0", href: "#" },
   { label: "Animeverse", number: "5.0", href: "#" },
 ];
@@ -19,10 +19,7 @@ export default function Navbar() {
       {/* Desktop */}
       <div className="hidden w-full overflow-hidden rounded-2xl border border-white/10 bg-[#181818]/45 text-white shadow-[0_20px_50px_rgba(0,0,0,0.4)] backdrop-blur-md md:flex">
         <div className="flex items-center border-r border-white/5 bg-acm-blue/35 px-2">
-          <Link
-            href="/"
-            className="flex items-center"
-          >
+          <Link href="/" className="flex items-center">
             <div className="relative h-8 w-16">
               <Image
                 src="/ACM_Logo_white_text.png"
