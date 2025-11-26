@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import TextFillOnScroll from "./TextFillOnScroll";
+import TextFillOnScroll from "../TextFillOnScroll";
 import InteractiveGridPattern from "./InteractiveGridPattern";
 import BackgroundMorph from "./BackgroundMorph";
 

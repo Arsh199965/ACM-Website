@@ -6,10 +6,11 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 const NAV_ITEMS = [
   { label: "About", number: "1.0", href: "/about" },
-  { label: "Events", number: "2.0", href: "#" },
-  { label: "Team", number: "3.0", href: "/teams" },
-  { label: "Clubs", number: "4.0", href: "#" },
-  { label: "Animeverse", number: "5.0", href: "#" },
+  { label: "Projects", number: "2.0", href: "/projects" },
+  { label: "Events", number: "3.0", href: "#" },
+  { label: "Team", number: "4.0", href: "/teams" },
+  { label: "Clubs", number: "5.0", href: "#" },
+  { label: "Animeverse", number: "6.0", href: "#" },
 ];
 
 export default function Navbar() {
@@ -34,7 +35,7 @@ export default function Navbar() {
           }`}
         >
           <Link href="/" className="flex items-center">
-            <div className="relative h-7 w-12">
+            <div className="relative h-7 w-9">
               <Image
                 src="/ACM_Logo_white_text.png"
                 alt="ACM Logo"
@@ -59,7 +60,7 @@ export default function Navbar() {
             <li key={item.label} className="flex flex-1 min-w-[140px]">
               <Link
                 href={item.href}
-                className={`flex flex-1 items-center justify-center gap-3 border-r border-white/5 px-6 py-3 transition ${
+                className={`flex flex-1 items-center justify-center gap-2 border-r border-white/5 px-3 py-3 transition ${
                   isActive(item.href)
                     ? "bg-acm-blue/35 text-white"
                     : "text-white/60 hover:bg-white/5 hover:text-white"

@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import AnimatedText from "./AnimatedText";
-import SplitText from "./SplitText";
+import AnimatedText from "../AnimatedText";
+import SplitText from "../SplitText";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);

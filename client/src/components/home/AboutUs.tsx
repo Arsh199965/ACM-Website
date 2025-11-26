@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import SplitText from "./SplitText";
+import SplitText from "../SplitText";
 
 import InteractiveGridPattern from "./InteractiveGridPattern";
 import BackgroundMorph from "./BackgroundMorph";
