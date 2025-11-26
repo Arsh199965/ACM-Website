@@ -6,8 +6,10 @@ import {
   useTransform,
   MotionValue,
   useSpring,
+  useMotionValue,
+  useMotionValueEvent,
 } from "framer-motion";
-import { useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import Image from "next/image";
 import { type Project } from "@/data/projectsData";
 
@@ -22,11 +24,31 @@ export default function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
     offset: ["start start", "end end"],
   });
 
-  const slideSteps = Math.max(projects.length - 1, 1);
-  const snappedProgress = useTransform(scrollYProgress, (value) => {
-    if (projects.length <= 1) return 0;
-    return Math.round(value * slideSteps) / slideSteps;
+  const totalSlides = projects.length;
+  const slideSteps = Math.max(totalSlides - 1, 1);
+  const snappedProgress = useMotionValue(0);
+  const prevStepRef = useRef(0);
+
+  useMotionValueEvent(scrollYProgress, "change", (value: number | null) => {
+    if (totalSlides <= 1) {
+      snappedProgress.set(0);
+      return;
+    }
+
+    const clamped = Math.min(Math.max(value ?? 0, 0), 1);
+    const rawStep = Math.round(clamped * slideSteps);
+    const prev = prevStepRef.current;
+    const delta = rawStep - prev;
+    const nextStep = Math.abs(delta) > 1 ? prev + Math.sign(delta) : rawStep;
+
+    prevStepRef.current = Math.min(Math.max(nextStep, 0), slideSteps);
+    snappedProgress.set(prevStepRef.current / slideSteps);
   });
+
+  useEffect(() => {
+    prevStepRef.current = 0;
+    snappedProgress.set(0);
+  }, [totalSlides, snappedProgress]);
 
   const smoothProgress = useSpring(snappedProgress, {
     stiffness: 270,
@@ -34,12 +56,32 @@ export default function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
     mass: 0.8,
   });
 
-  const driver = projects.length <= 1 ? scrollYProgress : smoothProgress;
+  const driver = totalSlides <= 1 ? scrollYProgress : smoothProgress;
 
   const x = useTransform(
     driver,
     [0, 1],
-    ["0%", `-${Math.max(projects.length - 1, 0) * 100}%`]
+    ["0%", `-${Math.max(totalSlides - 1, 0) * 100}%`]
+  );
+
+  const activeIndex = useTransform(snappedProgress, (value) =>
+    totalSlides <= 1 ? 0 : Math.round(value * slideSteps)
+  );
+
+  const handleNavigate = useCallback(
+    (index: number) => {
+      if (!containerRef.current || totalSlides <= 1) return;
+
+      const section = containerRef.current;
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      const sectionHeight = section.offsetHeight;
+      const denominator = slideSteps === 0 ? 1 : slideSteps;
+      const targetProgress = index / denominator;
+      const target = sectionTop + targetProgress * sectionHeight;
+
+      window.scrollTo({ top: target, behavior: "smooth" });
+    },
+    [slideSteps, totalSlides]
   );
 
   return (
@@ -71,10 +113,7 @@ export default function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
 
         {/* Project counter */}
         <div className="absolute bottom-8 left-6 z-20 md:left-12">
-          <ProjectCounter
-            scrollProgress={scrollYProgress}
-            total={projects.length}
-          />
+          <ProjectCounter activeIndex={activeIndex} total={projects.length} />
         </div>
 
         {/* Progress indicator */}
@@ -83,9 +122,10 @@ export default function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
             <ProjectProgressDot
               key={project.id}
               index={i}
-              scrollProgress={scrollYProgress}
+              activeIndex={activeIndex}
               total={projects.length}
               title={project.title}
+              onNavigate={handleNavigate}
             />
           ))}
         </div>
@@ -102,14 +142,14 @@ export default function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
 }
 
 function ProjectCounter({
-  scrollProgress,
+  activeIndex,
   total,
 }: {
-  scrollProgress: MotionValue<number>;
+  activeIndex: MotionValue<number>;
   total: number;
 }) {
-  const currentIndex = useTransform(scrollProgress, (v) =>
-    Math.min(Math.floor(v * total) + 1, total)
+  const currentIndex = useTransform(activeIndex, (v) =>
+    Math.min(Math.round(v) + 1, total)
   );
 
   return (
@@ -127,40 +167,37 @@ function ProjectCounter({
 
 function ProjectProgressDot({
   index,
-  scrollProgress,
+  activeIndex,
   total,
   title,
+  onNavigate,
 }: {
   index: number;
-  scrollProgress: MotionValue<number>;
+  activeIndex: MotionValue<number>;
   total: number;
   title: string;
+  onNavigate: (index: number) => void;
 }) {
-  const segmentSize = 1 / total;
-  const start = index * segmentSize;
-  const end = (index + 1) * segmentSize;
-
-  const opacity = useTransform(
-    scrollProgress,
-    [start, start + segmentSize * 0.1, end - segmentSize * 0.1, end],
-    [0.3, 1, 1, 0.3]
+  const isActive = useTransform(activeIndex, (v): number =>
+    Math.round(v) === index ? 1 : 0
   );
-  const scale = useTransform(
-    scrollProgress,
-    [start, start + segmentSize * 0.1, end - segmentSize * 0.1, end],
-    [1, 1.3, 1.3, 1]
-  );
-  const width = useTransform(
-    scrollProgress,
-    [start, start + segmentSize * 0.1, end - segmentSize * 0.1, end],
-    [8, 24, 24, 8]
-  );
+  const opacity = useTransform(isActive, [0, 1], [0.35, 1]);
+  const scale = useTransform(isActive, [0, 1], [0.9, 1.25]);
+  const width = useTransform(isActive, [0, 1], [10, 28]);
 
   return (
-    <div className="group flex items-center gap-3">
+    <motion.button
+      type="button"
+      onClick={() => onNavigate(index)}
+      style={{ opacity: opacity }}
+      className="group flex items-center gap-3 text-left focus:outline-none"
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      aria-label={`Jump to project ${index + 1} of ${total}`}
+    >
       <motion.div
         style={{ opacity, scale, width }}
-        className="h-2 rounded-full bg-white will-change-transform"
+        className="h-2 rounded-full bg-white/80 transition-colors group-hover:bg-white"
       />
       <motion.span
         style={{ opacity }}
@@ -168,7 +205,7 @@ function ProjectProgressDot({
       >
         {title}
       </motion.span>
-    </div>
+    </motion.button>
   );
 }
 

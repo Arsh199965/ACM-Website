@@ -35,7 +35,7 @@ export default function Navbar() {
           }`}
         >
           <Link href="/" className="flex items-center">
-            <div className="relative h-7 w-12">
+            <div className="relative h-7 w-9">
               <Image
                 src="/ACM_Logo_white_text.png"
                 alt="ACM Logo"
@@ -60,7 +60,7 @@ export default function Navbar() {
             <li key={item.label} className="flex flex-1 min-w-[140px]">
               <Link
                 href={item.href}
-                className={`flex flex-1 items-center justify-center gap-3 border-r border-white/5 px-6 py-3 transition ${
+                className={`flex flex-1 items-center justify-center gap-2 border-r border-white/5 px-3 py-3 transition ${
                   isActive(item.href)
                     ? "bg-acm-blue/35 text-white"
                     : "text-white/60 hover:bg-white/5 hover:text-white"
