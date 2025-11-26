@@ -6,10 +6,11 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 const NAV_ITEMS = [
   { label: "About", number: "1.0", href: "/about" },
-  { label: "Events", number: "2.0", href: "#" },
-  { label: "Team", number: "3.0", href: "/teams" },
-  { label: "Clubs", number: "4.0", href: "#" },
-  { label: "Animeverse", number: "5.0", href: "#" },
+  { label: "Projects", number: "2.0", href: "/projects" },
+  { label: "Events", number: "3.0", href: "#" },
+  { label: "Team", number: "4.0", href: "/teams" },
+  { label: "Clubs", number: "5.0", href: "#" },
+  { label: "Animeverse", number: "6.0", href: "#" },
 ];
 
 export default function Navbar() {
