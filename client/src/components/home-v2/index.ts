@@ -1,0 +1,10 @@
+export { default as HeaderV2 } from "./HeaderV2";
+export { default as HeroV2 } from "./HeroV2";
+export { default as AboutSection } from "./AboutSection";
+export { default as MarqueeSection } from "./MarqueeSection";
+export { default as ProjectsSection } from "./ProjectsSection";
+export { default as ProcessSection } from "./ProcessSection";
+export { default as GallerySection } from "./GallerySection";
+export { default as ContactSection } from "./ContactSection";
+export { default as FooterSection } from "./FooterSection";
+export { default as SmoothScroll } from "./SmoothScroll";
