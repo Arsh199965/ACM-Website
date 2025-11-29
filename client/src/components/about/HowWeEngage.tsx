@@ -2,7 +2,14 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
-import { GraduationCap, Rocket, Globe, LucideIcon, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  GraduationCap,
+  Rocket,
+  Globe,
+  LucideIcon,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import TextFillOnScroll from "@/components/TextFillOnScroll";
 
 const engagements = [
@@ -206,7 +213,9 @@ function MobileCarousel() {
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + engagements.length) % engagements.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + engagements.length) % engagements.length
+    );
   };
 
   const engagement = engagements[currentIndex];
@@ -241,7 +250,9 @@ function MobileCarousel() {
               {engagement.title}
             </h3>
             <p className="mb-2 text-xs text-gray-500">{engagement.subtitle}</p>
-            <p className="text-sm font-medium text-acm-blue">{engagement.price}</p>
+            <p className="text-sm font-medium text-acm-blue">
+              {engagement.price}
+            </p>
           </div>
 
           {/* Description */}
@@ -252,7 +263,10 @@ function MobileCarousel() {
           {/* Features */}
           <ul className="space-y-2">
             {engagement.features.map((feature, idx) => (
-              <li key={idx} className="flex items-start gap-2 text-sm text-gray-300">
+              <li
+                key={idx}
+                className="flex items-start gap-2 text-sm text-gray-300"
+              >
                 <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-acm-blue" />
                 <span>{feature}</span>
               </li>
