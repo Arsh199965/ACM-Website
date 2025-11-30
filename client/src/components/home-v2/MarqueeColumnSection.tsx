@@ -1,73 +1,162 @@
 "use client";
 
-import { useRef } from "react";
-import { useParallax } from "./ProjectsSection";
+import { useRef, useEffect, useState } from "react";
+
+/**
+ * HOOK: useScrollInfinite
+ * Moves an element based on PAGE SCROLL.
+ * Uses modulo (%) to reset the position, creating an infinite loop effect.
+ */
+const useScrollInfinite = (
+    ref: React.RefObject<HTMLDivElement | null>,
+    speed: number = 1
+) => {
+    const [height, setHeight] = useState(0);
+
+    // 1. Measure the height of the content (one set of images)
+    useEffect(() => {
+        if (ref.current) {
+            // We divide by 2 because we duplicated the images in the JSX
+            setHeight(ref.current.scrollHeight / 2);
+        }
+
+        const handleResize = () => {
+            if (ref.current) setHeight(ref.current.scrollHeight / 2);
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, [ref]);
+
+    // 2. The Scroll Loop
+    useEffect(() => {
+        // We use requestAnimationFrame to listen to scroll for better performance 
+        // than a raw 'scroll' event listener.
+        let animationFrameId: number;
+
+        const animate = () => {
+            if (!ref.current || height === 0) return;
+
+            const scrollY = window.scrollY;
+
+            // Calculate position based on scroll amount and speed
+            // The % height ensures that when we scroll past the image set, it resets.
+            let yPos = (scrollY * speed) % height;
+
+            // ADJUSTMENT FOR SMOOTH LOOPING:
+            // If moving DOWN (positive speed), we want to start shifted up 
+            // and move down towards 0 to avoid gaps appearing at the top.
+            if (speed > 0) {
+                yPos -= height;
+            }
+
+            // If moving UP (negative speed), standard behavior applies, 
+            // but if the calculation results in a positive value (rare edge case), fix it.
+            if (yPos > 0) {
+                yPos -= height;
+            }
+
+            ref.current.style.transform = `translate3d(0px, ${yPos}px, 0px)`;
+
+            animationFrameId = requestAnimationFrame(animate);
+        };
+
+        animationFrameId = requestAnimationFrame(animate);
+
+        return () => cancelAnimationFrame(animationFrameId);
+    }, [height, speed]);
+};
+
 /**
  * COMPONENT: MarqueeColumn
- * A single vertical column of images that moves based on scroll.
  */
-const MarqueeColumn = ({ images, speed = 0.2, className }: { images: string[], speed?: number, className?: string }) => {
-    const columnRef = useRef(null);
-    // We use the same parallax hook here! 
-    // If speed is negative, it moves UP against scroll. If positive, it moves DOWN.
-    const yOffset = useParallax(columnRef, speed);
+const MarqueeColumn = ({
+    images,
+    speed = 0.5,
+    className,
+}: {
+    images: string[];
+    speed?: number;
+    className?: string;
+}) => {
+    const columnRef = useRef<HTMLDivElement>(null);
+
+    // Apply the scroll hook
+    useScrollInfinite(columnRef, speed);
 
     return (
-        <div ref={columnRef} className={`flex flex-col gap-6 ${className}`} style={{ transform: `translate3d(0px, ${yOffset}px, 0px)` }}>
-            {images.map((src: string, index: number) => (
-                <img
-                    key={index}
-                    src={src}
-                    alt="Work showcase"
-                    className="w-full h-auto object-cover rounded-lg shadow-xl shadow-black/50  opacity-80 hover:opacity-100 transition-all duration-500 border border-white/5"
-                />
-            ))}
+        <div className={`relative h-[120vh] overflow-hidden ${className}`}>
+            {/* IMPORTANT: The container for the images must be duplicated.
+         This allows the reset logic to happen invisibly.
+      */}
+            <div ref={columnRef} className="flex flex-col gap-6 pb-6 will-change-transform">
+                {/* Set 1 */}
+                {images.map((src, index) => (
+                    <ImageCard key={`set1-${index}`} src={src} />
+                ))}
+
+                {/* Set 2 (The Duplicate) */}
+                {images.map((src, index) => (
+                    <ImageCard key={`set2-${index}`} src={src} />
+                ))}
+            </div>
         </div>
     );
 };
 
+const ImageCard = ({ src }: { src: string }) => (
+    <img
+        src={src}
+        alt="Work showcase"
+        className="w-full h-auto object-cover rounded-lg shadow-xl shadow-black/50 opacity-80 hover:opacity-100 transition-all duration-500 border border-white/5"
+    />
+);
+
 /**
  * COMPONENT: MarqueeSection
- * The container for the 3 moving columns.
  */
 export default function MarqueeColumnSection() {
-    // Image links from your provided code
     const col1Images = [
         "https://cdn.prod.website-files.com/64b04fffef60996503e80a1a/64e9d0998f3236f85be26505_OzgeKeles_LemonResolve.webp",
         "https://cdn.prod.website-files.com/64b04fffef60996503e80a1a/64e9d09b7e14851976e81702_OzgeKeles_SANAA-2.webp",
-        "https://cdn.prod.website-files.com/64b04fffef60996503e80a1a/64e9d0998f3236f85be26505_OzgeKeles_LemonResolve.webp"
+        "https://cdn.prod.website-files.com/64b04fffef60996503e80a1a/64e9d0998f3236f85be26505_OzgeKeles_LemonResolve.webp",
     ];
 
     const col2Images = [
         "https://cdn.prod.website-files.com/64b04fffef60996503e80a1a/64e9d09a2064a3f8b9d7712f_OzgeKeles_NevArtFest-1.webp",
         "https://cdn.prod.website-files.com/64b04fffef60996503e80a1a/64e9d09ab82f71fb7797058b_OzgeKeles_NevArtFest-2.webp",
-        "https://cdn.prod.website-files.com/64b04fffef60996503e80a1a/64e9d09a2064a3f8b9d7712f_OzgeKeles_NevArtFest-1.webp"
+        "https://cdn.prod.website-files.com/64b04fffef60996503e80a1a/64e9d09a2064a3f8b9d7712f_OzgeKeles_NevArtFest-1.webp",
     ];
 
     const col3Images = [
         "https://cdn.prod.website-files.com/64b04fffef60996503e80a1a/64e9d09b21e5907499d2a190_OzgeKeles_SandaPlaitt.webp",
         "https://cdn.prod.website-files.com/64b04fffef60996503e80a1a/64e9d09b7e14851976e817c8_OzgeKeles_SANAA-1.webp",
-        "https://cdn.prod.website-files.com/64b04fffef60996503e80a1a/64e9d09b21e5907499d2a190_OzgeKeles_SandaPlaitt.webp"
+        "https://cdn.prod.website-files.com/64b04fffef60996503e80a1a/64e9d09b21e5907499d2a190_OzgeKeles_SandaPlaitt.webp",
     ];
 
     return (
-      <section className="relative w-full h-[100vh] overflow-hidden bg-[#0d0d0d]  py-12 z-0">
-        <div className="grid grid-cols-4 gap-1 mx-auto px-1 h-[120%] -mt-24">
-          {/* Column 1: Moves Up (-speed) */}
-          <MarqueeColumn images={col1Images} speed={0.15} className="mt-12" />
+        // IMPORTANT: For scroll interactions to work, the page must be scrollable.
+        // I added min-h-[300vh] here just to simulate a long page so you can test the effect.
+        <div className="bg-[#0d0d0d] min-h-[300vh]">
 
-          {/* Column 2: Moves Down (+speed) - Starts higher up so it has room to go down */}
-          <MarqueeColumn images={col2Images} speed={-0.15} className="-mt-48" />
+            <section className="relative w-full h-[100vh] overflow-hidden sticky top-0 py-12 z-0">
+                <div className="grid grid-cols-4 gap-4 mx-auto px-4 h-full">
+                    {/* Speed Controls:
+               Negative (-0.5) = Moves UP when you scroll down.
+               Positive (0.3)  = Moves DOWN when you scroll down.
+            */}
+                    <MarqueeColumn images={col1Images} speed={-0.5} />
+                    <MarqueeColumn images={col2Images} speed={0.3} className="-mt-24" />
+                    <MarqueeColumn images={col3Images} speed={-0.7} />
+                    <MarqueeColumn images={col1Images} speed={0.4} className="mt-12" />
+                </div>
 
-          {/* Column 3: Moves Up (-speed) */}
-          <MarqueeColumn images={col3Images} speed={0.15} className="mt-24" />
-    
-          {/* Column 3: Moves Up (-speed) */}
-          <MarqueeColumn images={col1Images} speed={-0.15} className="mt-24" />
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#0d0d0d] via-transparent to-[#0d0d0d]" />
+            </section>
+
+            {/* Dummy content to show that it works as you scroll past the section */}
+            <div className="h-[100vh] flex items-center justify-center text-white/20">
+                Scroll down to see the effect continue
+            </div>
         </div>
-
-        {/* Optional Gradient Overlay to fade edges */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-[#0d0d0d] via-transparent to-[#0d0d0d]" />
-      </section>
     );
-};
+}
