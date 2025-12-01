@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { useRef } from "react";
 
 export default function MarqueeSection() {
@@ -10,9 +10,15 @@ export default function MarqueeSection() {
     offset: ["start end", "end start"],
   });
 
-  // Scroll-scrub horizontal movement - moves based on scroll position
-  const x1 = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
-  const x2 = useTransform(scrollYProgress, [0, 1], ["-50%", "0%"]);
+  // Smooth spring for scroll-scrub horizontal movement
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 50,
+    damping: 30,
+    restDelta: 0.0001,
+  });
+  
+  const x1 = useTransform(smoothProgress, [0, 1], ["0%", "-50%"]);
+  const x2 = useTransform(smoothProgress, [0, 1], ["-50%", "0%"]);
 
   const marqueeText = "CURATED EVENTS - ";
   const repeatCount = 4;
@@ -20,7 +26,7 @@ export default function MarqueeSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-black py-16 md:py-24"
+      className="relative w-full overflow-hidden bg-black py-16 md:py-24 z-20"
     >
       {/* Top border line */}
       <div className="absolute left-0 right-0 top-0 h-px bg-gray-800" />
@@ -31,10 +37,9 @@ export default function MarqueeSection() {
           {Array.from({ length: repeatCount }).map((_, i) => (
             <span
               key={`row1-${i}`}
-              className="font-display text-[7.5vw] font-bold leading-none tracking-tighter md:text-[6vw]"
+              className="text-[7.5vw] font-black leading-none tracking-tighter md:text-[6vw] text-white/80"
               style={{
-                WebkitTextStroke: "1.5px rgba(255, 255, 255, 0.3)",
-                color: "transparent",
+                fontFamily: "var(--font-heading)",
               }}
             >
               {marqueeText}
@@ -49,10 +54,9 @@ export default function MarqueeSection() {
           {Array.from({ length: repeatCount }).map((_, i) => (
             <span
               key={`row2-${i}`}
-              className="font-display text-[15vw] font-bold leading-none tracking-tighter md:text-[12vw]"
+              className="text-[15vw] font-black leading-none tracking-tighter md:text-[12vw] text-acm-blue"
               style={{
-                WebkitTextStroke: "1.5px rgba(0, 133, 202, 0.5)",
-                color: "transparent",
+                fontFamily: "var(--font-heading)",
               }}
             >
               {marqueeText}

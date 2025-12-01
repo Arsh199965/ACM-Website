@@ -68,7 +68,7 @@ export default function Footer() {
         {/* Top Section: CTA */}
         <div className="mb-24">
           <AnimatedText>
-            <h2 className="text-6xl md:text-8xl lg:text-9xl font-display font-bold tracking-tighter text-white mb-8">
+            <h2 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-normal text-white mb-8" style={{ fontFamily: "var(--font-heading)" }}>
               Let's Build <br />
               <span className="text-transparent bg-clip-text bg-linear-to-r from-acm-blue to-acm-blue-light">
                 The Future.
@@ -82,7 +82,7 @@ export default function Footer() {
             transition={{ delay: 0.4 }}
           >
             <button className="group relative px-8 py-4 bg-white text-black hover:bg-acm-blue hover:text-white transition-colors duration-300 rounded-full overflow-hidden">
-              <span className="relative font-medium tracking-wide text-lg">
+              <span className="relative font-semibold tracking-wide text-lg" style={{ fontFamily: "var(--font-body)" }}>
                 Join the Chapter
               </span>
             </button>
@@ -102,11 +102,11 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-xl font-display font-bold tracking-wide">
+              <span className="text-xl font-bold tracking-wide" style={{ fontFamily: "var(--font-heading)" }}>
                 GGSIPU EDC
               </span>
             </div>
-            <p className="text-gray-400 leading-relaxed max-w-sm">
+            <p className="text-gray-400 leading-relaxed max-w-sm" style={{ fontFamily: "var(--font-body)" }}>
               Fostering a community of developers, designers, and innovators.
               Creating impact through technology and collaboration.
             </p>
@@ -127,7 +127,7 @@ export default function Footer() {
           <div className="md:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-8">
             {FOOTER_LINKS.map((section, index) => (
               <div key={index} className="space-y-6">
-                <h4 className="text-sm font-mono uppercase tracking-wider text-gray-500">
+                <h4 className="text-sm font-bold uppercase tracking-wider text-gray-500" style={{ fontFamily: "var(--font-heading)" }}>
                   {section.title}
                 </h4>
                 <ul className="space-y-4">
@@ -136,6 +136,7 @@ export default function Footer() {
                       <Link
                         href={link.href}
                         className="text-gray-400 hover:text-acm-blue transition-colors duration-300 flex items-center gap-2 group"
+                        style={{ fontFamily: "var(--font-body)" }}
                       >
                         <span className="w-1 h-1 rounded-full bg-acm-blue opacity-0 group-hover:opacity-100 transition-opacity" />
                         {link.label}
@@ -149,7 +150,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section: Copyright */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800 text-sm text-gray-500">
+        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-800 text-sm text-gray-500" style={{ fontFamily: "var(--font-body)" }}>
           <p>© 2024 GGSIPU EDC ACM Student Chapter. All rights reserved.</p>
           <div className="flex gap-8 mt-4 md:mt-0">
             <a

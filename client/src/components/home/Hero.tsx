@@ -2,16 +2,70 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import AnimatedText from "../AnimatedText";
 import SplitText from "../SplitText";
 
 export default function Hero() {
   const [mounted, setMounted] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 });
+  const [hoveredSquare, setHoveredSquare] = useState<number | null>(null);
+  const [clickedSquares, setClickedSquares] = useState<Set<number>>(new Set());
+  const containerRef = useRef<HTMLElement>(null);
+  const rafRef = useRef<number | null>(null);
+  const targetMouseRef = useRef({ x: 0.5, y: 0.5 });
+
+  // Optimized mouse tracking with RAF and lerp for smooth 60fps
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    targetMouseRef.current = {
+      x: (e.clientX - rect.left) / rect.width,
+      y: (e.clientY - rect.top) / rect.height,
+    };
+  }, []);
+
+  // Smooth animation loop for mouse position
+  useEffect(() => {
+    if (!mounted) return;
+    
+    const animate = () => {
+      setMousePosition(prev => ({
+        x: prev.x + (targetMouseRef.current.x - prev.x) * 0.1,
+        y: prev.y + (targetMouseRef.current.y - prev.y) * 0.1,
+      }));
+      rafRef.current = requestAnimationFrame(animate);
+    };
+    
+    rafRef.current = requestAnimationFrame(animate);
+    
+    return () => {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
+  }, [mounted]);
+
+  const handleSquareClick = useCallback((id: number) => {
+    setClickedSquares(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
+      }
+      return newSet;
+    });
+  }, []);
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener('mousemove', handleMouseMove);
+      return () => container.removeEventListener('mousemove', handleMouseMove);
+    }
+  }, [handleMouseMove]);
 
   // Floating squares animation data - static values to avoid hydration mismatch
   const floatingSquares = [
@@ -38,34 +92,94 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative min-h-screen w-full bg-black overflow-hidden flex items-center justify-center">
-      {/* Floating Background Squares */}
+    <section 
+      ref={containerRef}
+      className="relative min-h-screen w-full bg-black overflow-hidden flex items-center justify-center z-40"
+    >
+      {/* Interactive Mouse Follower Glow */}
       {mounted && (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {floatingSquares.map((square) => (
-            <motion.div
-              key={square.id}
-              className="absolute bg-acm-blue opacity-30"
-              style={{
-                width: square.size,
-                height: square.size,
-                left: `${square.x}%`,
-                top: `${square.y}%`,
-                borderRadius: "8px",
-              }}
-              animate={{
-                y: [0, -80, 0],
-                x: [0, square.id % 2 === 0 ? 60 : -60, 0],
-                rotate: [0, 90, 0],
-              }}
-              transition={{
-                duration: square.duration,
-                delay: square.delay,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            />
-          ))}
+        <motion.div
+          className="absolute pointer-events-none z-0"
+          style={{
+            width: "600px",
+            height: "600px",
+            background: "radial-gradient(circle, rgba(0, 133, 202, 0.4) 0%, transparent 60%)",
+            filter: "blur(80px)",
+            left: `${mousePosition.x * 100}%`,
+            top: `${mousePosition.y * 100}%`,
+            transform: "translate(-50%, -50%)",
+          }}
+          animate={{
+            scale: [1, 1.1, 1],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      )}
+
+      {/* Floating Background Squares - Fully Interactive */}
+      {mounted && (
+        <div className="absolute inset-0 overflow-hidden">
+          {floatingSquares.map((square) => {
+            const isHovered = hoveredSquare === square.id;
+            const isClicked = clickedSquares.has(square.id);
+            const distanceX = (mousePosition.x * 100 - square.x) / 100;
+            const distanceY = (mousePosition.y * 100 - square.y) / 100;
+            const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+            const repelStrength = Math.max(0, 1 - distance * 2) * 80;
+            const repelX = distanceX !== 0 ? (-distanceX / distance) * repelStrength : 0;
+            const repelY = distanceY !== 0 ? (-distanceY / distance) * repelStrength : 0;
+            
+            return (
+              <motion.div
+                key={square.id}
+                className="absolute cursor-pointer"
+                style={{
+                  width: isHovered ? square.size * 1.3 : square.size,
+                  height: isHovered ? square.size * 1.3 : square.size,
+                  left: `${square.x}%`,
+                  top: `${square.y}%`,
+                  borderRadius: isClicked ? "50%" : "8px",
+                  background: isClicked 
+                    ? "linear-gradient(135deg, #0085ca 0%, #00a3ff 100%)" 
+                    : isHovered 
+                      ? "rgba(0, 133, 202, 0.6)" 
+                      : "rgba(0, 133, 202, 0.3)",
+                  boxShadow: isHovered 
+                    ? "0 0 30px rgba(0, 133, 202, 0.5), 0 0 60px rgba(0, 133, 202, 0.3)" 
+                    : isClicked
+                      ? "0 0 40px rgba(0, 163, 255, 0.6), inset 0 0 20px rgba(255,255,255,0.2)"
+                      : "none",
+                  transform: `translate(${repelX}px, ${repelY}px)`,
+                  transition: "width 0.3s, height 0.3s, background 0.3s, box-shadow 0.3s, border-radius 0.5s, transform 0.15s ease-out",
+                  zIndex: isHovered ? 10 : 1,
+                }}
+                onMouseEnter={() => setHoveredSquare(square.id)}
+                onMouseLeave={() => setHoveredSquare(null)}
+                onClick={() => handleSquareClick(square.id)}
+                animate={{
+                  y: [0, -80, 0],
+                  x: [0, square.id % 2 === 0 ? 60 : -60, 0],
+                  rotate: isClicked ? [0, 360] : [0, 90, 0],
+                }}
+                transition={{
+                  duration: isClicked ? 2 : square.duration,
+                  delay: square.delay,
+                  repeat: Infinity,
+                  ease: isClicked ? "linear" : "linear",
+                }}
+                whileHover={{
+                  scale: 1.2,
+                }}
+                whileTap={{
+                  scale: 0.9,
+                }}
+              />
+            );
+          })}
         </div>
       )}
 
@@ -159,18 +273,18 @@ export default function Hero() {
               className="h-10 w-auto"
               priority
             />
-            <div className="px-4 py-2 bg-gray-900/50 border border-gray-800 rounded-full flex items-center gap-2">
+            {/* <div className="px-4 py-2 bg-gray-900/50 border border-gray-800 rounded-full flex items-center gap-2">
               <span className="text-xs text-gray-400">50+</span>
               <span className="text-xs text-gray-300">
                 Active Enthusiastic Members
               </span>
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Main Headline */}
           <div className="mb-6 max-w-6xl">
             <AnimatedText delay={0.4}>
-              <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold font-display leading-[1.1] tracking-tight mb-4">
+              <h1 className="text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-[1.1] tracking-tight mb-4" style={{ fontFamily: "var(--font-heading)" }}>
                 <span className="text-transparent bg-clip-text bg-linear-to-r from-acm-blue to-acm-blue-light">
                   The Next Era of
                 </span>
@@ -178,14 +292,14 @@ export default function Hero() {
             </AnimatedText>
 
             <AnimatedText delay={0.6}>
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] tracking-tight">
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-black leading-[0.9] tracking-normal" style={{ fontFamily: "var(--font-heading)" }}>
                 <span className="text-white">GGSIPU EDC ACM</span>
               </h1>
             </AnimatedText>
 
             <AnimatedText delay={0.8}>
-              <h1 className="text-4xl md:text-5xl font-display lg:text-6xl xl:text-7xl font-bold leading-[1.1] tracking-tight mt-2">
-                <span className="text-6xl md:text-8xl lg:text-9xl font-display font-bold leading-[0.9] tracking-tight">
+              <h1 className="font-bold leading-[1.1] tracking-tight mt-2" style={{ fontFamily: "var(--font-heading)" }}>
+                <span className="text-7xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-normal" style={{ fontFamily: "var(--font-heading)" }}>
                   Student Chapter
                 </span>
               </h1>
@@ -194,10 +308,10 @@ export default function Hero() {
 
           {/* Description */}
           <AnimatedText delay={1.0} className="max-w-3xl mb-8">
-            <p className="text-sm md:text-md lg:text-lg text-gray-400 leading-relaxed">
+            <p className="text-sm md:text-md lg:text-lg text-gray-400 leading-relaxed" style={{ fontFamily: "var(--font-body)" }}>
               Empowering students to innovate, collaborate, and lead in the
-              world of computing— transforming ideas into impact through
-              cutting-edge research, hands-on projects, and a thriving technical
+              world of computing, transforming ideas into impact through
+              cutting-edge research, hands-on projects and a thriving technical
               community.
             </p>
           </AnimatedText>
@@ -209,8 +323,8 @@ export default function Hero() {
             transition={{ delay: 1.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="mb-10"
           >
-            <button className="group relative px-2 md:px-4 py-2 md:py-4 bg-gray-900 hover:bg-gray-800 border border-gray-800 hover:border-acm-blue rounded-full overflow-hidden transition-all duration-500">
-              <span className="relative text-white font-medium tracking-wide text-xs md:text-sm">
+            <button className="group relative px-2 md:px-4 py-2 md:py-4 bg-white text-black hover:bg-acm-blue hover:text-white border border-gray-800 rounded-full overflow-hidden transition-all duration-500">
+              <span className="relative font-bold tracking-wide text-xs md:text-sm">
                 Join Our Community
               </span>
             </button>

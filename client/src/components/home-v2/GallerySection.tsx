@@ -63,7 +63,7 @@ export default function GallerySection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-black px-6 py-16 md:px-12 md:py-24 lg:px-20"
+      className="relative w-full bg-black px-6 py-16 md:px-12 md:py-24 lg:px-20 z-10"
     >
       {/* Ambient glow */}
       <div className="pointer-events-none absolute inset-0">
@@ -78,7 +78,8 @@ export default function GallerySection() {
               initial={{ y: "100%" }}
               animate={isHeaderInView ? { y: 0 } : {}}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="font-display text-4xl font-bold text-white md:text-5xl lg:text-6xl"
+              className="text-4xl font-black text-white md:text-5xl lg:text-6xl"
+              style={{ fontFamily: "var(--font-heading)" }}
             >
               MOMENTS
             </motion.h2>

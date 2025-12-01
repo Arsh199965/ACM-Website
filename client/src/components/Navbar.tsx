@@ -26,7 +26,8 @@ export default function Navbar() {
   const isHomeActive = isActive("/");
 
   return (
-    <nav className="fixed top-4 left-1/2 z-50 w-full max-w-[1200px] -translate-x-1/2 px-4">
+    <div className="sticky top-0 z-[100] w-full flex justify-center pt-4 px-4">
+      <nav className="w-full max-w-[1200px]">
       {/* Desktop */}
       <div className="hidden w-full overflow-hidden rounded-2xl border border-white/10 bg-[#181818]/45 text-white shadow-[0_20px_50px_rgba(0,0,0,0.4)] backdrop-blur-md md:flex">
         <div
@@ -124,5 +125,6 @@ export default function Navbar() {
         )}
       </div>
     </nav>
+    </div>
   );
 }

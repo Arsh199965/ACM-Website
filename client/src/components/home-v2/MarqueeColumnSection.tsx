@@ -136,7 +136,7 @@ export default function MarqueeColumnSection() {
     return (
         // IMPORTANT: For scroll interactions to work, the page must be scrollable.
         // I added min-h-[300vh] here just to simulate a long page so you can test the effect.
-        <div className="bg-[#0d0d0d] min-h-[300vh]">
+        <div className="bg-[#0d0d0d] min-h-[300vh] relative z-10">
 
             <section className="relative w-full h-[100vh] overflow-hidden sticky top-0 py-12 z-0">
                 <div className="grid grid-cols-4 gap-4 mx-auto px-4 h-full">

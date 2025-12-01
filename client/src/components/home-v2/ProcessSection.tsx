@@ -95,7 +95,8 @@ function ProcessAccordion({
             animate={{
               color: isOpen ? "rgb(0, 133, 202)" : "rgb(255, 255, 255)",
             }}
-            className="font-display text-2xl font-medium transition-colors md:text-3xl lg:text-4xl"
+            className="text-2xl font-extrabold transition-colors md:text-3xl lg:text-4xl"
+            style={{ fontFamily: "var(--font-heading)" }}
           >
             {item.title}
           </motion.h3>
@@ -160,6 +161,7 @@ function ProcessAccordion({
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 + i * 0.15 }}
                     className="text-base leading-relaxed text-gray-400"
+                    style={{ fontFamily: "var(--font-body)" }}
                   >
                     {para}
                   </motion.p>
@@ -210,7 +212,8 @@ export default function ProcessSection() {
                 initial={{ y: "100%" }}
                 animate={isHeaderInView ? { y: 0 } : {}}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="font-display text-5xl font-bold text-white md:text-6xl lg:text-7xl"
+                className="text-5xl font-black text-white md:text-6xl lg:text-7xl"
+                style={{ fontFamily: "var(--font-heading)" }}
               >
                 WHAT WE
               </motion.h2>
@@ -224,7 +227,8 @@ export default function ProcessSection() {
                   delay: 0.1,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="font-display text-5xl font-bold text-acm-blue md:text-6xl lg:text-7xl"
+                className="text-5xl font-black text-acm-blue md:text-6xl lg:text-7xl"
+                style={{ fontFamily: "var(--font-heading)" }}
               >
                 DO
               </motion.h2>
@@ -236,6 +240,7 @@ export default function ProcessSection() {
               animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-base text-gray-400 md:text-lg"
+              style={{ fontFamily: "var(--font-body)" }}
             >
               Things we can help you with:
             </motion.p>

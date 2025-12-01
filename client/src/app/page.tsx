@@ -5,13 +5,10 @@ import {
   MarqueeSection,
   ProjectsSection,
   MarqueeColumnSection,
-  ProcessSection,
-  GallerySection,
-  ContactSection,
-  FooterSection,
   ParallaxImageSection,
 } from "@/components/home-v2";
 import Hero from "@/components/home/Hero";
+import Teams from "@/components/home/Teams";
 
 export default function Home() {
   return (
@@ -22,10 +19,7 @@ export default function Home() {
       <MarqueeSection />
       <ProjectsSection />
       <MarqueeColumnSection />
-      <GallerySection />
-      <ProcessSection />
-      <ContactSection />
-      <FooterSection />
+      <Teams />
     </main>
   );
 }

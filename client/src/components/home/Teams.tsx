@@ -103,10 +103,10 @@ export default function Teams() {
       <div className="max-w-[1600px] w-full">
         <div className="text-center mb-16">
           <AnimatedText>
-            <p className="text-sm md:text-base uppercase tracking-[0.4em] text-gray-500 mb-4">
+            <p className="text-sm md:text-base uppercase tracking-[0.4em] text-gray-500 mb-4" style={{ fontFamily: "var(--font-body)" }}>
               The Collective
             </p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight" style={{ fontFamily: "var(--font-heading)" }}>
               Teams that power the narrative
             </h2>
           </AnimatedText>
@@ -176,9 +176,10 @@ function DomainSection({
     <div>
       <AnimatedText className="mb-12">
         <h2
-          className={`text-4xl md:text-6xl font-bold tracking-tight text-white mb-6 ${
+          className={`text-4xl md:text-6xl font-black tracking-tight text-white mb-6 ${
             centerHeading ? "text-center" : ""
           }`}
+          style={{ fontFamily: "var(--font-heading)" }}
         >
           {title}
         </h2>
@@ -217,11 +218,11 @@ function TeamCard({
       <div className="relative mb-6">
         {/* Large Background Number - Clipped to show top half */}
         <div className="relative h-24 overflow-hidden select-none pointer-events-none">
-          <span className="absolute -top-4 left-0 text-[8rem] leading-none font-display font-bold text-[#1a1a1a] transition-colors duration-500 group-hover:text-[#222]">
+          <span className="absolute -top-2 left-0 text-[8rem] leading-none font-display font-bold text-[#1a1a1a] transition-colors duration-500 group-hover:text-[#222]">
             {number}
           </span>
         </div>
-        <div className="-translate-y-6 bg-[#08080c]">
+        <div className="-translate-y-7 bg-[#08080c]">
           {/* Divider Line */}
           <div className="w-full h-px bg-linear-to-r from-gray-800 via-gray-500 to-gray-800 mb-8 group-hover:bg-gray-700 transition-colors duration-500" />
 
@@ -238,10 +239,10 @@ function TeamCard({
 
       {/* Content */}
       <div className="space-y-10">
-        <h3 className="text-2xl md:text-3xl font-title  text-white tracking-wide group-hover:translate-x-1 transition-transform duration-300">
+        <h3 className="text-2xl md:text-3xl font-extrabold text-white tracking-wide group-hover:translate-x-1 transition-transform duration-300" style={{ fontFamily: "var(--font-heading)" }}>
           {title}
         </h3>
-        <p className="text-transparent bg-clip-text bg-linear-to-r from-gray-600 via-gray-500 to-gray-600 leading-tight text-xl md:text-2xl font-light max-w-sm group-hover:text-gray-500 transition-colors">
+        <p className="text-transparent bg-clip-text bg-linear-to-r from-gray-600 via-gray-500 to-gray-600 leading-tight text-xl md:text-2xl font-normal max-w-sm group-hover:text-gray-500 transition-colors" style={{ fontFamily: "var(--font-body)" }}>
           {description}
         </p>
       </div>
