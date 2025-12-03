@@ -54,7 +54,7 @@ export default function StoryTransition({
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[60vh] flex items-center justify-center bg-[#030303] overflow-hidden py-32 md:py-48"
+      className="relative min-h-[50vh] sm:min-h-[60vh] flex items-center justify-center bg-[#030303] overflow-hidden py-20 sm:py-32 md:py-48"
     >
       {/* Background Decorative Elements */}
       <motion.div
@@ -94,7 +94,7 @@ export default function StoryTransition({
 
         {/* Main Text */}
         <h2
-          className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white tracking-normal leading-[1.1] mb-8"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white tracking-normal leading-[1.1] mb-6 sm:mb-8"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {renderMainText()}
@@ -106,7 +106,7 @@ export default function StoryTransition({
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-white/40 text-lg md:text-xl max-w-2xl mx-auto"
+            className="text-white/40 text-base sm:text-lg md:text-xl max-w-2xl mx-auto px-4 sm:px-0"
             style={{ fontFamily: "var(--font-body)" }}
           >
             {subText}

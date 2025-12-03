@@ -164,10 +164,10 @@ function UpcomingEventCard({ event }: { event: UpcomingEvent }) {
           </p>
           
           {/* Stats */}
-          <div className="grid grid-cols-4 gap-4 mb-8 py-6 border-y border-white/10">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 py-6 border-y border-white/10">
             {event.stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <span className="block text-2xl font-black text-white" style={{ fontFamily: "var(--font-heading)" }}>
+                <span className="block text-xl sm:text-2xl font-black text-white" style={{ fontFamily: "var(--font-heading)" }}>
                   {stat.value}
                 </span>
                 <span className="text-[9px] uppercase tracking-normalr text-white/40" style={{ fontFamily: "var(--font-body)" }}>

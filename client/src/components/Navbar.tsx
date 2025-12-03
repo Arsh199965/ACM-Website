@@ -12,6 +12,12 @@ const NAV_ITEMS = [
   { label: "Blogs", number: "5.0", href: "/blogs" },
 ];
 
+// Mobile nav includes Home
+const MOBILE_NAV_ITEMS = [
+  { label: "Home", number: "0.0", href: "/" },
+  ...NAV_ITEMS,
+];
+
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
@@ -92,22 +98,23 @@ export default function Navbar() {
             />
           </div>
           <button
-            className="rounded-xl border border-white/20 p-2"
+            className="rounded-xl border border-white/20 p-3"
             onClick={() => setMobileOpen((prev) => !prev)}
             aria-label="Toggle navigation"
           >
-            <span className="block h-0.5 w-5 bg-white" />
-            <span className="mt-1 block h-0.5 w-5 bg-white" />
-            <span className="mt-1 block h-0.5 w-5 bg-white" />
+            <span className="block h-0.5 w-6 bg-white" />
+            <span className="mt-1.5 block h-0.5 w-6 bg-white" />
+            <span className="mt-1.5 block h-0.5 w-6 bg-white" />
           </button>
         </div>
         {mobileOpen && (
-          <div className="border-t border-white/10 px-4 py-3">
-            <ul className="space-y-3 text-sm uppercase tracking-[0.25em]">
-              {NAV_ITEMS.map((item) => (
+          <div className="border-t border-white/10 px-4 py-4">
+            <ul className="space-y-4 text-sm uppercase tracking-[0.25em]">
+              {MOBILE_NAV_ITEMS.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
+                    onClick={() => setMobileOpen(false)}
                     className={`flex items-center justify-between transition-colors ${
                       isActive(item.href)
                         ? "text-white"

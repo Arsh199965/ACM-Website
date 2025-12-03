@@ -137,7 +137,7 @@ function SectionHeader({
           </span>
         </div>
         <h3
-          className="text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-normal"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-normal"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {title}
@@ -158,7 +158,7 @@ export default function Teams() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#050508] overflow-hidden py-32"
+      className="relative w-full bg-[#050508] overflow-hidden py-20 sm:py-32"
       style={{ zIndex: 10 }}
     >
       {/* Background Elements */}
@@ -181,7 +181,7 @@ export default function Teams() {
             initial={{ opacity: 0, y: 30 }}
             animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-            className="mb-24"
+            className="mb-16 sm:mb-24"
           >
             <div className="flex items-center gap-6 mb-6">
               <div className="w-16 h-px bg-linear-to-r from-acm-blue/60 to-transparent" />
@@ -193,7 +193,7 @@ export default function Teams() {
               </span>
             </div>
             <h2
-              className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-normal"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-normal"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               <TextReveal text="Our Team" delay={0.1} />

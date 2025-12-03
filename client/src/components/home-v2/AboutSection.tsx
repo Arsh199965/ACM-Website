@@ -118,14 +118,14 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative bg-[#030303] py-24 md:py-32 lg:py-40"
+      className="relative bg-[#030303] py-16 sm:py-24 md:py-32 lg:py-40"
     >
       {/* Ambient Glow */}
       <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] rounded-full bg-acm-blue/2 blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
         {/* Header Section */}
-        <div ref={headerRef} className="mb-16 md:mb-24">
+        <div ref={headerRef} className="mb-12 sm:mb-16 md:mb-24">
           {/* Section Label */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -146,13 +146,13 @@ export default function AboutSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <h2
-              className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-normal leading-[0.9]"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-normal leading-[0.9]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               <TextReveal text="Shaping" delay={0.1} />
             </h2>
             <h2
-              className="text-5xl md:text-7xl lg:text-8xl font-black tracking-normal leading-[0.9]"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-normal leading-[0.9]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               <span className="text-white/20">
@@ -203,7 +203,7 @@ export default function AboutSection() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {cards.map((card, index) => (
             <SimpleCard key={card.id} card={card} index={index} />
           ))}

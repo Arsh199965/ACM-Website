@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen w-full bg-black overflow-hidden">
+    <section className="relative min-h-screen w-full bg-black overflow-hidden overflow-x-hidden">
       {/* Background Video */}
       <div className="absolute inset-0">
         <video
@@ -24,8 +24,8 @@ export default function Hero() {
       </div>
       
       {/* Ambient Glow Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full bg-acm-blue/8 blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/3 w-[400px] h-[400px] rounded-full bg-acm-blue/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] md:w-[600px] md:h-[600px] rounded-full bg-acm-blue/8 blur-[100px] md:blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/3 w-[200px] h-[200px] md:w-[400px] md:h-[400px] rounded-full bg-acm-blue/5 blur-[80px] md:blur-[120px] pointer-events-none" />
       
       {/* Grid Pattern Overlay */}
       <div 
@@ -79,21 +79,21 @@ export default function Hero() {
               </div>
               
               {/* Main Title */}
-              <h1 className="mb-8">
+              <h1 className="mb-4 sm:mb-6 md:mb-8">
                 <span 
-                  className="block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-[0.9] tracking-normal"
+                  className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black text-white leading-[0.9] tracking-normal"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   GGSIPU
                 </span>
                 <span 
-                  className="block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white/20 leading-[0.9] tracking-normal"
+                  className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black text-white/20 leading-[0.9] tracking-normal"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   EDC
                 </span>
                 <span 
-                  className="block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-acm-blue leading-[0.9] tracking-normal"
+                  className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black text-acm-blue leading-[0.9] tracking-normal"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   ACM
@@ -102,25 +102,25 @@ export default function Hero() {
               
               {/* Description */}
               <p 
-                className="max-w-md text-base md:text-lg text-white/50 leading-relaxed mb-10"
+                className="max-w-md text-sm sm:text-base md:text-lg text-white/50 leading-relaxed mb-8 sm:mb-10"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Empowering students to innovate and lead in computing—transforming ideas into <span className="text-acm-blue font-medium">impact</span>.
               </p>
               
               {/* CTA Buttons */}
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
                 <motion.button 
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="px-8 py-4 bg-acm-blue text-white text-sm tracking-[0.2em] uppercase font-medium hover:bg-acm-blue/90 transition-colors"
+                  className="px-6 sm:px-8 py-3 sm:py-4 bg-acm-blue text-white text-sm tracking-[0.2em] uppercase font-medium hover:bg-acm-blue/90 transition-colors"
                 >
                   Join Community
                 </motion.button>
                 <motion.button 
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="group flex items-center gap-3 px-8 py-4 border border-white/20 text-white/70 text-sm tracking-[0.2em] uppercase hover:border-white/40 hover:text-white transition-all"
+                  className="group flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 border border-white/20 text-white/70 text-sm tracking-[0.2em] uppercase hover:border-white/40 hover:text-white transition-all"
                 >
                   <span>Explore Events</span>
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -201,11 +201,11 @@ export default function Hero() {
           <div className="max-w-[1400px] mx-auto">
             <div className="flex items-center justify-between pt-6 border-t border-white/10">
               {/* Mobile Stats */}
-              <div className="flex gap-8 lg:hidden">
+              <div className="flex gap-4 sm:gap-8 lg:hidden">
                 {[{ value: "50+", label: "Members" }, { value: "25+", label: "Events" }, { value: "12+", label: "Domains" }].map((stat) => (
-                  <div key={stat.label} className="flex items-baseline gap-2">
-                    <span className="text-2xl font-black text-white" style={{ fontFamily: "var(--font-heading)" }}>{stat.value}</span>
-                    <span className="text-[9px] tracking-[0.2em] text-white/30 uppercase">{stat.label}</span>
+                  <div key={stat.label} className="flex items-baseline gap-1 sm:gap-2">
+                    <span className="text-xl sm:text-2xl font-black text-white" style={{ fontFamily: "var(--font-heading)" }}>{stat.value}</span>
+                    <span className="text-[8px] sm:text-[9px] tracking-[0.15em] sm:tracking-[0.2em] text-white/30 uppercase">{stat.label}</span>
                   </div>
                 ))}
               </div>

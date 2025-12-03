@@ -157,7 +157,7 @@ export default function BlogsHero() {
                     delay: 0.4 + i * 0.08,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="inline-block text-6xl md:text-8xl lg:text-[10rem] font-black text-white/90 tracking-tight leading-none"
+                  className="inline-block text-5xl sm:text-6xl md:text-8xl lg:text-[10rem] font-black text-white/90 tracking-tight leading-none"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {letter}
@@ -179,7 +179,7 @@ export default function BlogsHero() {
                     delay: 0.6 + i * 0.05,
                     ease: [0.22, 1, 0.36, 1],
                   }}
-                  className="inline-block text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tight leading-none"
+                  className="inline-block text-4xl sm:text-5xl md:text-8xl lg:text-[10rem] font-black tracking-tight leading-none"
                   style={{ 
                     fontFamily: "var(--font-heading)",
                     background: "linear-gradient(135deg, #0085CA 0%, #00A3FF 50%, #0085CA 100%)",
@@ -210,7 +210,7 @@ export default function BlogsHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.4 }}
-            className="mt-12 md:mt-16 flex items-center gap-8 md:gap-16"
+            className="mt-8 md:mt-16 flex items-center gap-6 sm:gap-8 md:gap-16"
           >
             {[
               { value: "6", label: "Articles" },

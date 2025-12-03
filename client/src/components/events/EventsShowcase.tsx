@@ -65,7 +65,7 @@ function EventCard({ event, index }: EventCardProps) {
 
             {/* Title */}
             <h3
-              className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3 group-hover:text-acm-blue transition-colors leading-tight"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3 group-hover:text-acm-blue transition-colors leading-tight"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               {event.title}
@@ -203,7 +203,7 @@ export default function EventsShowcase() {
   return (
     <section
       ref={containerRef}
-      className="relative py-32 md:py-40 bg-[#030303] overflow-hidden"
+      className="relative py-20 sm:py-32 md:py-40 bg-[#030303] overflow-hidden"
     >
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
@@ -248,7 +248,7 @@ export default function EventsShowcase() {
               </div>
               
               <h2
-                className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-normal"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-normal"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 DON&apos;T MISS <span className="text-green-400">OUT</span>
@@ -288,7 +288,7 @@ export default function EventsShowcase() {
           
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-normal"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-normal"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               EXPLORE THE <span className="text-acm-blue">ARCHIVE</span>

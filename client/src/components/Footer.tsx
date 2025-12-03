@@ -47,7 +47,7 @@ export default function Footer() {
   return (
     <footer 
       ref={footerRef}
-      className="relative w-full bg-[#030303] text-white overflow-hidden"
+      className="relative w-full bg-[#030303] text-white overflow-hidden overflow-x-hidden"
     >
       {/* Animated Background Logo */}
       <motion.div
@@ -69,7 +69,7 @@ export default function Footer() {
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] rounded-full bg-acm-blue/3 blur-[150px] pointer-events-none" />
       
       {/* Main Content */}
-      <div className="relative z-10 px-6 md:px-12 lg:px-20 pt-24 md:pt-32 pb-8">
+      <div className="relative z-10 px-4 sm:px-6 md:px-12 lg:px-20 pt-16 md:pt-24 lg:pt-32 pb-8">
         <div className="max-w-[1400px] mx-auto">
           
           {/* CTA Section */}
@@ -77,7 +77,7 @@ export default function Footer() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="mb-20 md:mb-32"
+            className="mb-12 sm:mb-20 md:mb-32"
           >
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-px bg-acm-blue/50" />
@@ -87,10 +87,10 @@ export default function Footer() {
             </div>
             
             <h2 
-              className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-normal leading-[0.95] mb-8"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-black text-white tracking-normal leading-[0.95] mb-6 md:mb-8"
               style={{ fontFamily: "var(--font-heading)" }}
             >
-              Let's Build<br />
+              Let&apos;s Build<br />
               <span className="text-acm-blue">The Future.</span>
             </h2>
             
@@ -151,7 +151,7 @@ export default function Footer() {
             </div>
 
             {/* Links Columns */}
-            <div className="md:col-span-7 grid grid-cols-3 gap-8">
+            <div className="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-6 sm:gap-8">
               {FOOTER_LINKS.map((section, index) => (
                 <div key={index}>
                   <h4 
@@ -183,21 +183,21 @@ export default function Footer() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-white/10"
+            className="flex flex-col md:flex-row justify-between items-center gap-4 pt-6 md:pt-8 border-t border-white/10"
           >
-            <p className="text-white/30 text-xs tracking-normal" style={{ fontFamily: "var(--font-body)" }}>
-              © 2024 GGSIPU EDC ACM Student Chapter. All rights reserved.
+            <p className="text-white/30 text-[10px] sm:text-xs tracking-normal text-center md:text-left" style={{ fontFamily: "var(--font-body)" }}>
+              © 2024 GGSIPU EDC ACM Student Chapter.
             </p>
-            <div className="flex items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
               <a
                 href="mailto:usaracm@ipu.ac.in"
-                className="text-white/30 text-xs hover:text-white transition-colors flex items-center gap-2"
+                className="text-white/30 text-[10px] sm:text-xs hover:text-white transition-colors flex items-center gap-2"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 <Mail size={12} />
                 usaracm@ipu.ac.in
               </a>
-              <span className="text-white/20 text-xs">New Delhi, India</span>
+              <span className="text-white/20 text-[10px] sm:text-xs">New Delhi, India</span>
             </div>
           </motion.div>
         </div>

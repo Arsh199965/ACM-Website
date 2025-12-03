@@ -42,7 +42,7 @@ function HighlightCard({ item, index }: { item: typeof highlights[0]; index: num
   return (
     <motion.div
       ref={cardRef}
-      className="relative w-[85vw] md:w-[60vw] lg:w-[40vw] shrink-0 h-[70vh] md:h-[80vh] group"
+      className="relative w-[80vw] sm:w-[85vw] md:w-[60vw] lg:w-[40vw] shrink-0 h-[60vh] sm:h-[70vh] md:h-[80vh] group"
       initial={{ opacity: 0, scale: 0.9 }}
       animate={isInView ? { opacity: 1, scale: 1 } : {}}
       transition={{ duration: 0.8, delay: index * 0.1 }}
@@ -55,7 +55,7 @@ function HighlightCard({ item, index }: { item: typeof highlights[0]; index: num
         {/* Large decorative number */}
         <div className="absolute inset-0 flex items-center justify-center opacity-[0.03]">
           <span 
-            className="text-[40vw] md:text-[25vw] font-black text-white leading-none"
+            className="text-[30vw] sm:text-[40vw] md:text-[25vw] font-black text-white leading-none"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             {String(index + 1).padStart(2, '0')}
@@ -91,14 +91,14 @@ function HighlightCard({ item, index }: { item: typeof highlights[0]; index: num
           <AnimatedCounter
             value={item.number}
             suffix={item.suffix}
-            className="text-7xl md:text-9xl font-black text-white tracking-normal"
+            className="text-5xl sm:text-7xl md:text-9xl font-black text-white tracking-normal"
             duration={2}
           />
         </div>
 
         {/* Label */}
         <h3
-          className="text-2xl md:text-3xl font-black text-white mb-2 tracking-normal"
+          className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-2 tracking-normal"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {item.label}

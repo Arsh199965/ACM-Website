@@ -131,7 +131,7 @@ export default function AboutHero() {
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="relative text-[15vw] md:text-[12vw] lg:text-[10vw] font-black text-white tracking-normal leading-[0.9]"
+                className="relative text-[18vw] sm:text-[15vw] md:text-[12vw] lg:text-[10vw] font-black text-white tracking-normal leading-[0.9]"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 ABOUT
@@ -146,7 +146,7 @@ export default function AboutHero() {
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                className="text-[20vw] md:text-[16vw] lg:text-[12vw] font-black tracking-normal leading-none"
+                className="text-[25vw] sm:text-[20vw] md:text-[16vw] lg:text-[12vw] font-black tracking-normal leading-none"
                 style={{ 
                   fontFamily: "var(--font-heading)",
                   background: "linear-gradient(135deg, #0085CA 0%, #00A3E0 50%, #0085CA 100%)",
@@ -186,7 +186,7 @@ export default function AboutHero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16"
+            className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 md:gap-12 lg:gap-16"
           >
             {[
               { value: "50+", label: "Active Members", icon: "✦" },
@@ -201,7 +201,7 @@ export default function AboutHero() {
                 <div className="relative px-4 py-3">
                   <div className="text-acm-blue text-sm mb-2 opacity-60">{stat.icon}</div>
                   <div 
-                    className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-1"
+                    className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-1"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
                     {stat.value}

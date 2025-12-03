@@ -24,7 +24,20 @@ body {
   font-family: var(--font-sans);
   background-color: var(--background);
   color: var(--foreground);
-  overflow-x: hidden;
+}
+
+/* 
+  Mobile overflow fix that preserves sticky positioning
+  Using clip instead of hidden allows sticky to work
+*/
+@media (max-width: 768px) {
+  html {
+    overflow-x: clip;
+  }
+  
+  body {
+    overflow-x: clip;
+  }
 }
 
 /* GPU Acceleration for smooth animations */

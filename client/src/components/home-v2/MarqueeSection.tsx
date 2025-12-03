@@ -19,7 +19,7 @@ export default function MarqueeSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-black py-20 md:py-32 z-20"
+      className="relative w-full overflow-hidden bg-black py-12 sm:py-20 md:py-32 z-20"
     >
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-acm-blue/2 to-transparent pointer-events-none" />
@@ -33,7 +33,7 @@ export default function MarqueeSection() {
           {Array.from({ length: repeatCount }).map((_, i) => (
             <span
               key={`row1-${i}`}
-              className="text-[8vw] md:text-[6vw] font-black leading-none tracking-normal"
+              className="text-[10vw] sm:text-[8vw] md:text-[6vw] font-black leading-none tracking-normal"
               style={{
                 fontFamily: "var(--font-heading)",
                 WebkitTextStroke: "1px rgba(255, 255, 255, 0.15)",
@@ -41,7 +41,7 @@ export default function MarqueeSection() {
               }}
             >
               {marqueeText}
-              <span className="mx-6 text-white/10">•</span>
+              <span className="mx-4 sm:mx-6 text-white/10">•</span>
             </span>
           ))}
         </motion.div>
@@ -56,13 +56,13 @@ export default function MarqueeSection() {
           {Array.from({ length: repeatCount }).map((_, i) => (
             <span
               key={`row2-${i}`}
-              className="text-[14vw] md:text-[11vw] font-black leading-[0.85] tracking-normal text-acm-blue"
+              className="text-[16vw] sm:text-[14vw] md:text-[11vw] font-black leading-[0.85] tracking-normal text-acm-blue"
               style={{
                 fontFamily: "var(--font-heading)",
               }}
             >
               {marqueeText}
-              <span className="mx-8 text-acm-blue/30">—</span>
+              <span className="mx-4 sm:mx-8 text-acm-blue/30">—</span>
             </span>
           ))}
         </motion.div>

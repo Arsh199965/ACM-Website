@@ -22,7 +22,7 @@ export default function BlogsGrid({ posts, onPostClick }: BlogsGridProps) {
       : posts.filter((p) => p.category === activeCategory);
 
   return (
-    <section className="relative bg-[#030303] py-32 md:py-40 overflow-hidden">
+    <section className="relative bg-[#030303] py-20 sm:py-32 md:py-40 overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-acm-blue/[0.02] rounded-full blur-[200px]" />
@@ -66,7 +66,7 @@ export default function BlogsGrid({ posts, onPostClick }: BlogsGridProps) {
           
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-normal"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-normal"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               EXPLORE THE <span className="text-acm-blue">ARCHIVE</span>

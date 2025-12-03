@@ -36,7 +36,7 @@ export default function TeamSection({
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-[#030303] overflow-hidden py-24 md:py-32"
+      className="relative w-full bg-[#030303] overflow-hidden py-16 sm:py-24 md:py-32"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
@@ -79,7 +79,7 @@ export default function TeamSection({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-normal leading-[0.95] mb-4"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-normal leading-[0.95] mb-4"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             {title}

@@ -136,24 +136,24 @@ export default function MarqueeColumnSection() {
     return (
         <div className="bg-black min-h-[300vh] relative z-10">
             {/* Section Header */}
-            <div className="relative z-20 pt-32 pb-8 px-6 md:px-12 lg:px-20">
+            <div className="relative z-20 pt-20 sm:pt-32 pb-6 sm:pb-8 px-4 sm:px-6 md:px-12 lg:px-20">
                 <div className="max-w-[1400px] mx-auto">
-                    <div className="flex items-center gap-6 mb-4">
-                        <div className="w-16 h-px bg-acm-blue/50" />
-                        <span className="text-[11px] font-light tracking-[0.5em] text-white/30 uppercase" style={{ fontFamily: "var(--font-body)" }}>
+                    <div className="flex items-center gap-4 sm:gap-6 mb-4">
+                        <div className="w-10 sm:w-16 h-px bg-acm-blue/50" />
+                        <span className="text-[10px] sm:text-[11px] font-light tracking-[0.5em] text-white/30 uppercase" style={{ fontFamily: "var(--font-body)" }}>
                             Gallery
                         </span>
                     </div>
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-normal" style={{ fontFamily: "var(--font-heading)" }}>
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-normal" style={{ fontFamily: "var(--font-heading)" }}>
                         Captured Moments
                     </h2>
                 </div>
             </div>
 
-            <section className="sticky top-0 w-full h-screen overflow-hidden py-12 z-0">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mx-auto px-6 h-full">
+            <section className="sticky top-0 w-full h-screen overflow-hidden py-8 sm:py-12 z-0">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mx-auto px-4 sm:px-6 h-full">
                     <MarqueeColumn images={col1Images} speed={-0.4} />
-                    <MarqueeColumn images={col2Images} speed={0.25} className="-mt-32" />
+                    <MarqueeColumn images={col2Images} speed={0.25} className="-mt-16 sm:-mt-32" />
                     <MarqueeColumn images={col3Images} speed={-0.5} className="hidden md:block" />
                     <MarqueeColumn images={col1Images} speed={0.35} className="hidden md:block mt-16" />
                 </div>

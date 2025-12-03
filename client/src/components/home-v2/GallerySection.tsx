@@ -4,13 +4,14 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { useRef } from "react";
 
 export default function GallerySection() {
+  const containerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const isHeaderInView = useInView(headerRef, { once: true, amount: 0.5 });
 
   const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
+    target: containerRef,
+    offset: ["start start", "end end"],
   });
 
   // Different parallax speeds for different images
@@ -61,10 +62,12 @@ export default function GallerySection() {
   ];
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full bg-black px-6 py-16 md:px-12 md:py-24 lg:px-20 z-10"
-    >
+    <div ref={containerRef} className="relative bg-black min-h-[200vh] z-10">
+      {/* Sticky Container - works on both mobile and desktop */}
+      <section
+        ref={sectionRef}
+        className="sticky top-0 w-full min-h-screen bg-black px-4 py-12 sm:px-6 sm:py-16 md:px-12 md:py-24 lg:px-20 overflow-hidden"
+      >
       {/* Ambient glow */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute right-1/4 top-1/4 h-[500px] w-[500px] rounded-full bg-acm-blue/5 blur-[200px]" />
@@ -72,13 +75,13 @@ export default function GallerySection() {
 
       <div className="relative z-10 mx-auto max-w-[1400px]">
         {/* Section Header */}
-        <div ref={headerRef} className="mb-12 md:mb-20">
+        <div ref={headerRef} className="mb-8 sm:mb-12 md:mb-20">
           <div className="overflow-hidden">
             <motion.h2
               initial={{ y: "100%" }}
               animate={isHeaderInView ? { y: 0 } : {}}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="text-4xl font-black text-white md:text-5xl lg:text-6xl"
+              className="text-3xl sm:text-4xl font-black text-white md:text-5xl lg:text-6xl"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               MOMENTS
@@ -93,7 +96,7 @@ export default function GallerySection() {
         </div>
 
         {/* Masonry-style Grid */}
-        <div className="grid auto-rows-[200px] grid-cols-2 gap-4 md:auto-rows-[250px] md:grid-cols-4 md:gap-6">
+        <div className="grid auto-rows-[150px] sm:auto-rows-[200px] grid-cols-2 gap-3 sm:gap-4 md:auto-rows-[250px] md:grid-cols-4 md:gap-6">
           {images.map((image, index) => (
             <motion.div
               key={index}
@@ -132,7 +135,7 @@ export default function GallerySection() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 + index * 0.1 }}
-                className="absolute right-4 top-4 font-mono text-4xl font-bold text-white/10 transition-colors duration-300 group-hover:text-acm-blue/30 md:text-6xl"
+                className="absolute right-2 top-2 sm:right-4 sm:top-4 font-mono text-2xl sm:text-4xl font-bold text-white/10 transition-colors duration-300 group-hover:text-acm-blue/30 md:text-6xl"
               >
                 {String(index + 1).padStart(2, "0")}
               </motion.div>
@@ -154,6 +157,7 @@ export default function GallerySection() {
           ))}
         </div>
       </div>
-    </section>
+      </section>
+    </div>
   );
 }

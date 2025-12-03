@@ -12,7 +12,7 @@ interface ProjectsGalleryProps {
 
 export default function ProjectsGallery({ projects }: ProjectsGalleryProps) {
   return (
-    <section className="relative bg-[#030303] py-24 md:py-40">
+    <section className="relative bg-[#030303] py-16 sm:py-24 md:py-40">
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-acm-blue/5 rounded-full blur-[200px]" />
@@ -20,7 +20,7 @@ export default function ProjectsGallery({ projects }: ProjectsGalleryProps) {
       </div>
 
       {/* Section Header */}
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 mb-16 md:mb-24">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20 mb-12 sm:mb-16 md:mb-24">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -48,7 +48,7 @@ export default function ProjectsGallery({ projects }: ProjectsGalleryProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-normal leading-[0.95]"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-normal leading-[0.95]"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           SELECTED <span className="text-acm-blue">PROJECTS</span>
@@ -57,7 +57,7 @@ export default function ProjectsGallery({ projects }: ProjectsGalleryProps) {
 
       {/* Projects Grid */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
-        <div className="space-y-24 md:space-y-40">
+        <div className="space-y-16 sm:space-y-24 md:space-y-40">
           {projects.map((project, index) => (
             <ProjectCard 
               key={project.id} 
@@ -222,7 +222,7 @@ function ProjectCard({
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-normal"
+              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white mb-4 sm:mb-6 tracking-normal"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               {project.title}
