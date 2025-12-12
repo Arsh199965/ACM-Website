@@ -113,7 +113,7 @@ export default function TeamsPage() {
   const { faculty, officeBearers, technical, creative } = currentTeamData;
 
   return (
-    <main className="min-h-screen bg-[#030303] text-white">
+    <main className="min-h-screen bg-[#030303] text-[var(--foreground)]">
       {/* Cinematic Scroll Indicator */}
       <CinematicScroll />
 

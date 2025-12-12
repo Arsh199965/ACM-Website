@@ -58,7 +58,7 @@ export default function AboutGGSIPU() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-black overflow-hidden py-24 md:py-40"
+      className="relative w-full bg-[var(--background)] overflow-hidden py-24 md:py-40"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-30">
@@ -98,7 +98,7 @@ export default function AboutGGSIPU() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-normal leading-[0.95] mb-6"
+          className="text-4xl md:text-6xl lg:text-7xl font-black text-[var(--foreground)] tracking-normal leading-[0.95] mb-6"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           GGSIPU <span className="text-acm-blue">EDC</span>
@@ -125,7 +125,7 @@ export default function AboutGGSIPU() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative bg-[#0a0a0a] border border-white/5 p-12 md:p-16">
+            <div className="relative bg-[var(--surface)] border border-white/5 p-12 md:p-16">
               {/* Corner Accents */}
               <div className="absolute top-0 left-0 w-6 h-6 border-l-2 border-t-2 border-acm-blue/40" />
               <div className="absolute top-0 right-0 w-6 h-6 border-r-2 border-t-2 border-acm-blue/40" />
@@ -162,7 +162,7 @@ export default function AboutGGSIPU() {
               className="absolute -bottom-6 -right-6 bg-acm-blue px-6 py-3"
             >
               <span 
-                className="text-white text-sm font-medium tracking-normal"
+                className="text-[var(--foreground)] text-sm font-medium tracking-normal"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Est. 1998
@@ -183,7 +183,7 @@ export default function AboutGGSIPU() {
                 className="text-white/50 text-base md:text-lg leading-[1.8]"
                 style={{ fontFamily: "var(--font-body)" }}
               >
-                <span className="text-white font-medium">Guru Gobind Singh Indraprastha University (GGSIPU)</span> is 
+                <span className="text-[var(--foreground)] font-medium">Guru Gobind Singh Indraprastha University (GGSIPU)</span> is 
                 a premier state university established by the Government of NCT of Delhi in 1998. 
                 Named after the tenth Sikh Guru, Guru Gobind Singh, the university has grown to become 
                 one of the largest affiliating universities in India.
@@ -217,7 +217,7 @@ export default function AboutGGSIPU() {
                   className="group inline-flex items-center gap-2 px-5 py-2.5 border border-white/10 hover:border-acm-blue/50 bg-white/2 transition-all duration-300"
                 >
                   <span 
-                    className="text-sm text-white/60 group-hover:text-white transition-colors"
+                    className="text-sm text-white/60 group-hover:text-[var(--foreground)] transition-colors"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
                     GGSIPU Official
@@ -232,7 +232,7 @@ export default function AboutGGSIPU() {
                   className="group inline-flex items-center gap-2 px-5 py-2.5 border border-white/10 hover:border-acm-blue/50 bg-white/2 transition-all duration-300"
                 >
                   <span 
-                    className="text-sm text-white/60 group-hover:text-white transition-colors"
+                    className="text-sm text-white/60 group-hover:text-[var(--foreground)] transition-colors"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
                     EDC Campus
@@ -253,7 +253,7 @@ export default function AboutGGSIPU() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-              className="group relative bg-[#0a0a0a] border border-white/5 p-6 transition-all duration-300 hover:border-white/10"
+              className="group relative bg-[var(--surface)] border border-white/5 p-6 transition-all duration-300 hover:border-white/10"
             >
               {/* Accent Line */}
               <div className="absolute top-0 left-0 w-full h-1 bg-acm-blue/30 group-hover:bg-acm-blue/60 transition-colors duration-300" />
@@ -264,7 +264,7 @@ export default function AboutGGSIPU() {
                 </div>
                 <div>
                   <h4 
-                    className="text-lg font-bold text-white mb-1"
+                    className="text-lg font-bold text-[var(--foreground)] mb-1"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
                     {item.title}
@@ -289,7 +289,7 @@ export default function AboutGGSIPU() {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <h3 
-            className="text-xl md:text-2xl font-black text-white mb-8"
+            className="text-xl md:text-2xl font-black text-[var(--foreground)] mb-8"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             OUR <span className="text-acm-blue">SCHOOLS</span>
@@ -303,7 +303,7 @@ export default function AboutGGSIPU() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                className="group relative bg-[#0a0a0a] border border-white/5 p-6 md:p-8 transition-all duration-300 hover:border-acm-blue/20"
+                className="group relative bg-[var(--surface)] border border-white/5 p-6 md:p-8 transition-all duration-300 hover:border-acm-blue/20"
               >
                 {/* Top Accent */}
                 <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-acm-blue/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -316,7 +316,7 @@ export default function AboutGGSIPU() {
                   <div>
                     <div className="flex items-baseline gap-3 mb-2">
                       <span 
-                        className="text-2xl md:text-3xl font-black text-white"
+                        className="text-2xl md:text-3xl font-black text-[var(--foreground)]"
                         style={{ fontFamily: "var(--font-heading)" }}
                       >
                         {school.abbr}

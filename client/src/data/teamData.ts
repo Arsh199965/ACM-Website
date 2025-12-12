@@ -67,7 +67,7 @@ export const officeBearers: TeamMember[] = [
     name: 'Abhijith KS',
     role: 'Web Master',
     category: 'office-bearer',
-    imageUrl: '/team/no-image.webp',
+    imageUrl: '/team/abhijeet.webp',
     linkedin: 'https://www.linkedin.com/in/abhijith-ks-8b8290207/'
   },
 ];
@@ -84,7 +84,7 @@ export const technicalTeam: TeamMember[] = [
     name: 'Ritwik Mittal',
     role: 'DSA Captain',
     category: 'technical',
-    imageUrl: '/team/no-image.webp',
+    imageUrl: '/team/ritwik.webp',
     linkedin: 'https://www.linkedin.com/in/ritwikmittal/'
   },
   {
@@ -106,7 +106,7 @@ export const creativeTeam: TeamMember[] = [
     name: 'Utkarsh Yadav',
     role: 'Design Captain',
     category: 'creative',
-    imageUrl: '/team/no-image.webp',
+    imageUrl: '/team/utkarsh.webp',
     linkedin: 'https://linkedin.com'
   },
   {

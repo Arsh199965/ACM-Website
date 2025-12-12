@@ -35,7 +35,7 @@ function parseContent(content: string) {
       const boldParts = part.split(/(\*\*[^*]+\*\*)/g);
       return boldParts.map((bp, j) => {
         if (bp.startsWith('**') && bp.endsWith('**')) {
-          return <strong key={`${i}-${j}`} className="text-white font-semibold">{bp.slice(2, -2)}</strong>;
+          return <strong key={`${i}-${j}`} className="text-[var(--foreground)] font-semibold">{bp.slice(2, -2)}</strong>;
         }
         return bp;
       });
@@ -63,21 +63,21 @@ function parseContent(content: string) {
     if (trimmed.startsWith('### ')) {
       flushParagraph();
       elements.push(
-        <h3 key={key++} className="mt-10 mb-4 text-xl md:text-2xl font-bold text-white">
+        <h3 key={key++} className="mt-10 mb-4 text-xl md:text-2xl font-bold text-[var(--foreground)]">
           {trimmed.replace('### ', '')}
         </h3>
       );
     } else if (trimmed.startsWith('## ')) {
       flushParagraph();
       elements.push(
-        <h2 key={key++} className="mt-12 mb-6 text-2xl md:text-3xl font-bold text-white border-l-2 border-acm-blue pl-4">
+        <h2 key={key++} className="mt-12 mb-6 text-2xl md:text-3xl font-bold text-[var(--foreground)] border-l-2 border-acm-blue pl-4">
           {trimmed.replace('## ', '')}
         </h2>
       );
     } else if (trimmed.startsWith('# ')) {
       flushParagraph();
       elements.push(
-        <h1 key={key++} className="mt-12 mb-6 text-3xl md:text-4xl font-bold text-white">
+        <h1 key={key++} className="mt-12 mb-6 text-3xl md:text-4xl font-bold text-[var(--foreground)]">
           {trimmed.replace('# ', '')}
         </h1>
       );
@@ -201,7 +201,7 @@ export default function BlogReader({ post, isOpen, onClose }: BlogReaderProps) {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={onClose}
-                className="group flex items-center gap-2 md:gap-3 text-white/60 hover:text-white transition-colors"
+                className="group flex items-center gap-2 md:gap-3 text-white/60 hover:text-[var(--foreground)] transition-colors"
               >
                 <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover:border-acm-blue/50 group-hover:bg-acm-blue/10 transition-all">
                   <ArrowLeft className="w-4 h-4 group-hover:text-acm-blue transition-colors" />
@@ -303,7 +303,7 @@ export default function BlogReader({ post, isOpen, onClose }: BlogReaderProps) {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.6 }}
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-4 md:mb-6"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--foreground)] leading-[1.1] mb-4 md:mb-6"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {post.title}
@@ -334,7 +334,7 @@ export default function BlogReader({ post, isOpen, onClose }: BlogReaderProps) {
                       </span>
                     </div>
                     <div>
-                      <span className="block text-sm md:text-base font-medium text-white">
+                      <span className="block text-sm md:text-base font-medium text-[var(--foreground)]">
                         {post.author.name}
                       </span>
                       <span className="block text-xs text-acm-blue/70">
@@ -431,7 +431,7 @@ export default function BlogReader({ post, isOpen, onClose }: BlogReaderProps) {
                     </span>
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-lg md:text-xl font-bold text-white mb-1">
+                    <h4 className="text-lg md:text-xl font-bold text-[var(--foreground)] mb-1">
                       {post.author.name}
                     </h4>
                     <p className="text-sm text-acm-blue mb-3">
@@ -447,12 +447,12 @@ export default function BlogReader({ post, isOpen, onClose }: BlogReaderProps) {
 
               {/* Continue Reading */}
               <div className="mt-16 pt-12 border-t border-white/5">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-6">
+                <h3 className="text-xl md:text-2xl font-bold text-[var(--foreground)] mb-6">
                   Continue Reading
                 </h3>
                 <button
                   onClick={onClose}
-                  className="group inline-flex items-center gap-3 text-acm-blue hover:text-white transition-colors"
+                  className="group inline-flex items-center gap-3 text-acm-blue hover:text-[var(--foreground)] transition-colors"
                 >
                   <span className="text-sm font-medium">Explore more articles</span>
                   <ArrowLeft className="w-4 h-4 rotate-180 group-hover:translate-x-1 transition-transform" />
@@ -471,7 +471,7 @@ export default function BlogReader({ post, isOpen, onClose }: BlogReaderProps) {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={scrollToTop}
-                className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 w-12 h-12 rounded-full bg-acm-blue text-white flex items-center justify-center shadow-lg shadow-acm-blue/20"
+                className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 w-12 h-12 rounded-full bg-acm-blue text-[var(--foreground)] flex items-center justify-center shadow-lg shadow-acm-blue/20"
               >
                 <ChevronUp className="w-5 h-5" />
               </motion.button>

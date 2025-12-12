@@ -82,7 +82,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl lg:text-8xl font-black text-white tracking-normal leading-[0.95] mb-8"
+            className="text-4xl md:text-6xl lg:text-8xl font-black text-[var(--foreground)] tracking-normal leading-[0.95] mb-8"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             READY TO <span className="text-acm-blue">BUILD</span>
@@ -113,7 +113,7 @@ export default function CTASection() {
           >
             <Link
               href="/teams"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-acm-blue text-white font-medium text-sm uppercase tracking-normalr transition-all duration-300 hover:bg-acm-blue/90"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-acm-blue text-[var(--foreground)] font-medium text-sm uppercase tracking-normalr transition-all duration-300 hover:bg-acm-blue/90"
               style={{ fontFamily: "var(--font-body)" }}
             >
               <span>Meet Our Team</span>
@@ -122,7 +122,7 @@ export default function CTASection() {
 
             <Link
               href="/blogs"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/10 text-white/70 font-medium text-sm uppercase tracking-normalr transition-all duration-300 hover:border-white/30 hover:text-white"
+              className="group inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/10 text-white/70 font-medium text-sm uppercase tracking-normalr transition-all duration-300 hover:border-white/30 hover:text-[var(--foreground)]"
               style={{ fontFamily: "var(--font-body)" }}
             >
               <span>Read Our Blog</span>

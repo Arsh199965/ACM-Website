@@ -92,7 +92,7 @@ export default function ProjectsClosing() {
             whileInView={{ y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl md:text-7xl lg:text-8xl font-black text-white tracking-normal leading-[0.95]"
+            className="text-4xl md:text-7xl lg:text-8xl font-black text-[var(--foreground)] tracking-normal leading-[0.95]"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             HAVE A PROJECT
@@ -158,14 +158,14 @@ export default function ProjectsClosing() {
             <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             
             <span className="relative flex items-center gap-3">
-              <Mail className="w-4 h-4 text-white" />
+              <Mail className="w-4 h-4 text-[var(--foreground)]" />
               <span 
-                className="text-sm font-medium text-white tracking-wide"
+                className="text-sm font-medium text-[var(--foreground)] tracking-wide"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Get In Touch
               </span>
-              <ArrowUpRight className="w-4 h-4 text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight className="w-4 h-4 text-[var(--foreground)] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </span>
           </a>
 
@@ -176,7 +176,7 @@ export default function ProjectsClosing() {
           >
             <span className="flex items-center gap-3">
               <span 
-                className="text-sm font-medium text-white/80 group-hover:text-white tracking-wide transition-colors"
+                className="text-sm font-medium text-white/80 group-hover:text-[var(--foreground)] tracking-wide transition-colors"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Meet The Team
@@ -201,7 +201,7 @@ export default function ProjectsClosing() {
           ].map((stat, i) => (
             <div key={i} className="text-center">
               <div 
-                className="text-3xl md:text-5xl font-black text-white mb-2"
+                className="text-3xl md:text-5xl font-black text-[var(--foreground)] mb-2"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 {stat.value}

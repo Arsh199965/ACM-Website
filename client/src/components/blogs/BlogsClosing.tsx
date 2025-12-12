@@ -62,7 +62,7 @@ export default function BlogsClosing() {
             className="text-4xl md:text-6xl lg:text-7xl font-black tracking-normal leading-[0.95] mb-6"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            <span className="text-white">HAVE A STORY TO</span>
+            <span className="text-[var(--foreground)]">HAVE A STORY TO</span>
             <br />
             <span 
               style={{
@@ -112,7 +112,7 @@ export default function BlogsClosing() {
               <span className="relative z-10 flex items-center justify-center gap-3">
                 <PenTool size={18} className="text-acm-blue" />
                 <span 
-                  className="text-sm font-medium text-white tracking-wide"
+                  className="text-sm font-medium text-[var(--foreground)] tracking-wide"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   Submit Your Story
@@ -164,7 +164,7 @@ export default function BlogsClosing() {
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <stat.icon size={16} className="text-acm-blue/60" />
                   <span 
-                    className="text-2xl md:text-3xl font-black text-white"
+                    className="text-2xl md:text-3xl font-black text-[var(--foreground)]"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
                     {stat.value}

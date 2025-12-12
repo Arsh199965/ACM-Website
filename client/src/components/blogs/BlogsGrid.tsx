@@ -67,7 +67,7 @@ export default function BlogsGrid({ posts, onPostClick }: BlogsGridProps) {
           
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <h2
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-normal"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[var(--foreground)] tracking-normal"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               EXPLORE THE <span className="text-acm-blue">ARCHIVE</span>
@@ -205,7 +205,7 @@ function BlogCard({
       onClick={onClick}
       className="group cursor-pointer h-full"
     >
-      <div className="relative h-full flex flex-col bg-[#0a0a0a] border border-white/5 overflow-hidden transition-all duration-500 hover:border-acm-blue/20">
+      <div className="relative h-full flex flex-col bg-[var(--surface)] border border-white/5 overflow-hidden transition-all duration-500 hover:border-acm-blue/20">
         {/* Corner Accents */}
         <div className="absolute top-0 left-0 w-6 h-6 border-l-2 border-t-2 border-white/10 group-hover:border-acm-blue/40 transition-colors duration-500 z-10" />
         <div className="absolute top-0 right-0 w-6 h-6 border-r-2 border-t-2 border-white/10 group-hover:border-acm-blue/40 transition-colors duration-500 z-10" />
@@ -228,7 +228,7 @@ function BlogCard({
           </motion.div>
           
           {/* Overlay */}
-          <div className="absolute inset-0 bg-linear-to-t from-[#0a0a0a] via-black/40 to-transparent opacity-80" />
+          <div className="absolute inset-0 bg-linear-to-t from-[var(--surface)] via-black/40 to-transparent opacity-80" />
 
           {/* Category Badge */}
           <div className="absolute top-4 left-4 z-10">
@@ -273,7 +273,7 @@ function BlogCard({
         <div className="p-5 md:p-6 flex-1 flex flex-col">
           {/* Title */}
           <h3 
-            className="text-lg md:text-xl font-black text-white mb-2 group-hover:text-acm-blue transition-colors duration-300 tracking-normal line-clamp-2"
+            className="text-lg md:text-xl font-black text-[var(--foreground)] mb-2 group-hover:text-acm-blue transition-colors duration-300 tracking-normal line-clamp-2"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             {post.title}

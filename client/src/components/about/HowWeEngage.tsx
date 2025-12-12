@@ -100,7 +100,7 @@ function EngagementCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false }}
       transition={{ duration: 0.8, delay: index * 0.2 }}
-      className="group relative rounded-2xl border border-gray-800 bg-linear-to-br from-gray-900/50 to-black p-6 backdrop-blur-sm transition-all duration-500 hover:border-acm-blue/50 md:rounded-3xl md:p-8"
+      className="group relative rounded-2xl border border-[var(--border)] bg-linear-to-br from-gray-900/50 to-[var(--background)] p-6 backdrop-blur-sm transition-all duration-500 hover:border-acm-blue/50 md:rounded-3xl md:p-8"
     >
       <div
         className={`absolute inset-0 rounded-2xl bg-linear-to-br ${gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-5 md:rounded-3xl`}
@@ -119,10 +119,10 @@ function EngagementCard({
 
         {/* Header */}
         <div className="mb-4 md:mb-6">
-          <h3 className="mb-1 font-display text-2xl font-bold text-white md:mb-2 md:text-3xl">
+          <h3 className="mb-1 font-display text-2xl font-bold text-[var(--foreground)] md:mb-2 md:text-3xl">
             {title}
           </h3>
-          <p className="mb-2 text-xs text-gray-500 md:mb-3 md:text-sm">
+          <p className="mb-2 text-xs text-[var(--text-subtle)] md:mb-3 md:text-sm">
             {subtitle}
           </p>
           <p className="text-base font-medium text-acm-blue md:text-lg">
@@ -131,7 +131,7 @@ function EngagementCard({
         </div>
 
         {/* Description */}
-        <p className="mb-6 text-sm leading-relaxed text-gray-400 md:mb-8 md:text-base">
+        <p className="mb-6 text-sm leading-relaxed text-[var(--text-muted)] md:mb-8 md:text-base">
           {description}
         </p>
 
@@ -140,7 +140,7 @@ function EngagementCard({
           {features.map((feature, idx) => (
             <li
               key={idx}
-              className="flex items-start gap-2 text-sm text-gray-300 md:gap-3 md:text-base"
+              className="flex items-start gap-2 text-sm text-[var(--text-muted)] md:gap-3 md:text-base"
             >
               <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-acm-blue md:mt-2" />
               <span>{feature}</span>
@@ -164,7 +164,7 @@ export default function HowWeEngage() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-black px-4 py-20 md:px-12 md:py-32"
+      className="relative w-full overflow-hidden bg-[var(--background)] px-4 py-20 md:px-12 md:py-32"
     >
       {/* Parallax Background */}
       <motion.div
@@ -184,7 +184,7 @@ export default function HowWeEngage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: false }}
-            className="mx-auto max-w-xl text-base text-gray-400 md:max-w-2xl md:text-xl"
+            className="mx-auto max-w-xl text-base text-[var(--text-muted)] md:max-w-2xl md:text-xl"
           >
             Three pathways to transform your potential into impact
           </motion.p>
@@ -230,7 +230,7 @@ function MobileCarousel() {
         animate={{ opacity: 1, x: 0 }}
         exit={{ opacity: 0, x: -50 }}
         transition={{ duration: 0.3 }}
-        className="relative rounded-2xl border border-gray-800 bg-linear-to-br from-gray-900/50 to-black p-5"
+        className="relative rounded-2xl border border-[var(--border)] bg-linear-to-br from-gray-900/50 to-[var(--background)] p-5"
       >
         <div
           className={`absolute inset-0 rounded-2xl bg-linear-to-br ${engagement.gradient} opacity-5`}
@@ -246,17 +246,17 @@ function MobileCarousel() {
 
           {/* Header */}
           <div className="mb-4">
-            <h3 className="mb-1 font-display text-2xl font-bold text-white">
+            <h3 className="mb-1 font-display text-2xl font-bold text-[var(--foreground)]">
               {engagement.title}
             </h3>
-            <p className="mb-2 text-xs text-gray-500">{engagement.subtitle}</p>
+            <p className="mb-2 text-xs text-[var(--text-subtle)]">{engagement.subtitle}</p>
             <p className="text-sm font-medium text-acm-blue">
               {engagement.price}
             </p>
           </div>
 
           {/* Description */}
-          <p className="mb-4 text-sm leading-relaxed text-gray-400">
+          <p className="mb-4 text-sm leading-relaxed text-[var(--text-muted)]">
             {engagement.description}
           </p>
 
@@ -265,7 +265,7 @@ function MobileCarousel() {
             {engagement.features.map((feature, idx) => (
               <li
                 key={idx}
-                className="flex items-start gap-2 text-sm text-gray-300"
+                className="flex items-start gap-2 text-sm text-[var(--text-muted)]"
               >
                 <div className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-acm-blue" />
                 <span>{feature}</span>
@@ -279,7 +279,7 @@ function MobileCarousel() {
       <div className="mt-6 flex items-center justify-center gap-4">
         <button
           onClick={prevSlide}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-700 bg-gray-900/50 text-white transition-colors hover:border-acm-blue hover:bg-acm-blue/10"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)]/50 text-[var(--foreground)] transition-colors hover:border-acm-blue hover:bg-acm-blue/10"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
@@ -293,7 +293,7 @@ function MobileCarousel() {
               className={`h-2 rounded-full transition-all duration-300 ${
                 index === currentIndex
                   ? "w-6 bg-acm-blue"
-                  : "w-2 bg-gray-600 hover:bg-gray-500"
+                  : "w-2 bg-[var(--text-subtle)] hover:bg-gray-500"
               }`}
             />
           ))}
@@ -301,7 +301,7 @@ function MobileCarousel() {
 
         <button
           onClick={nextSlide}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-700 bg-gray-900/50 text-white transition-colors hover:border-acm-blue hover:bg-acm-blue/10"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--surface)]/50 text-[var(--foreground)] transition-colors hover:border-acm-blue hover:bg-acm-blue/10"
         >
           <ChevronRight className="h-5 w-5" />
         </button>

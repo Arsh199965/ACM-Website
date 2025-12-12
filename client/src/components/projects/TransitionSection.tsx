@@ -128,7 +128,7 @@ function MobileTransitionSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-black py-16 md:hidden"
+      className="relative overflow-hidden bg-[var(--background)] py-16 md:hidden"
     >
       {/* Background glow - mobile optimized */}
       <motion.div
@@ -162,7 +162,7 @@ function MobileTransitionSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.6 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-3 font-display text-2xl font-semibold leading-tight text-white"
+            className="mt-3 font-display text-2xl font-semibold leading-tight text-[var(--foreground)]"
           >
             We choreograph the drop into each story.
           </motion.h2>
@@ -192,7 +192,7 @@ function MobileTransitionSection() {
               <span className="absolute -top-1.5 -right-0.5 text-sm text-acm-blue/40">
                 {stat.icon}
               </span>
-              <div className="text-lg font-bold text-white">{stat.value}</div>
+              <div className="text-lg font-bold text-[var(--foreground)]">{stat.value}</div>
               <p className="mt-0.5 text-[8px] uppercase tracking-[0.15em] text-white/40">
                 {stat.label}
               </p>
@@ -251,7 +251,7 @@ function MobileTransitionSection() {
                 {item.icon}
               </div>
               <div className="flex-1">
-                <h3 className="text-sm font-semibold text-white">
+                <h3 className="text-sm font-semibold text-[var(--foreground)]">
                   {item.title}
                 </h3>
                 <p className="mt-1 text-xs leading-relaxed text-white/50">
@@ -282,7 +282,7 @@ function DesktopTransitionSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative hidden overflow-hidden bg-black py-24 md:block"
+      className="relative hidden overflow-hidden bg-[var(--background)] py-24 md:block"
     >
       <motion.div
         style={{ opacity: backgroundOpacity }}
@@ -309,7 +309,7 @@ function DesktopTransitionSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.6 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-4 font-display text-4xl font-semibold text-white md:text-5xl"
+              className="mt-4 font-display text-4xl font-semibold text-[var(--foreground)] md:text-5xl"
             >
               We choreograph the drop into each story.
             </motion.h2>
@@ -339,7 +339,7 @@ function DesktopTransitionSection() {
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.25 }}
                 >
-                  <div className="text-2xl font-semibold text-white">
+                  <div className="text-2xl font-semibold text-[var(--foreground)]">
                     {stat.value}
                   </div>
                   <p className="mt-1 text-xs uppercase tracking-[0.3em] text-white/40">
@@ -409,7 +409,7 @@ function DesktopTransitionSection() {
               transition={{ duration: 0.5 }}
               whileHover={{ scale: 1.02, transition: { duration: 0.25 } }}
             >
-              <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+              <h3 className="text-lg font-semibold text-[var(--foreground)]">{item.title}</h3>
               <p className="mt-3 text-sm leading-relaxed text-white/60">
                 {item.text}
               </p>

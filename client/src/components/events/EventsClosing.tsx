@@ -62,7 +62,7 @@ export default function EventsClosing() {
             className="text-4xl md:text-6xl lg:text-7xl font-black tracking-normal leading-[0.95] mb-6"
             style={{ fontFamily: "var(--font-heading)" }}
           >
-            <span className="text-white">DON&apos;T JUST WATCH.</span>
+            <span className="text-[var(--foreground)]">DON&apos;T JUST WATCH.</span>
             <br />
             <span 
               style={{
@@ -111,7 +111,7 @@ export default function EventsClosing() {
               <span className="relative z-10 flex items-center justify-center gap-3">
                 <Mail size={18} className="text-acm-blue" />
                 <span 
-                  className="text-sm font-medium text-white tracking-wide"
+                  className="text-sm font-medium text-[var(--foreground)] tracking-wide"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   Get Event Updates
@@ -163,7 +163,7 @@ export default function EventsClosing() {
                 <div className="flex items-center justify-center gap-2 mb-2">
                   <stat.icon size={16} className="text-acm-blue/60" />
                   <span 
-                    className="text-2xl md:text-3xl font-black text-white"
+                    className="text-2xl md:text-3xl font-black text-[var(--foreground)]"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
                     {stat.value}

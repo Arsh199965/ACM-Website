@@ -83,7 +83,7 @@ function DomainCard({ domain, index }: { domain: DomainProps; index: number }) {
       }}
       className="group relative"
     >
-      <div className="relative bg-[#0a0a0a] border border-white/5 p-6 md:p-8 transition-all duration-500 hover:border-acm-blue/30 overflow-hidden">
+      <div className="relative bg-[var(--surface)] border border-white/5 p-6 md:p-8 transition-all duration-500 hover:border-acm-blue/30 overflow-hidden">
         {/* Corner Accents */}
         <div className="absolute top-0 left-0 w-4 h-4 border-l border-t border-white/10 group-hover:border-acm-blue/40 transition-colors duration-300" />
         <div className="absolute top-0 right-0 w-4 h-4 border-r border-t border-white/10 group-hover:border-acm-blue/40 transition-colors duration-300" />
@@ -110,7 +110,7 @@ function DomainCard({ domain, index }: { domain: DomainProps; index: number }) {
         {/* Content */}
         <div className="relative">
           <h4 
-            className="text-xl md:text-2xl font-black text-white mb-3 tracking-normal group-hover:text-acm-blue transition-colors duration-300"
+            className="text-xl md:text-2xl font-black text-[var(--foreground)] mb-3 tracking-normal group-hover:text-acm-blue transition-colors duration-300"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             {domain.title}
@@ -155,7 +155,7 @@ function DomainSection({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="text-2xl md:text-3xl font-black text-white mb-8 tracking-normal"
+        className="text-2xl md:text-3xl font-black text-[var(--foreground)] mb-8 tracking-normal"
         style={{ fontFamily: "var(--font-heading)" }}
       >
         {title}
@@ -212,7 +212,7 @@ export default function DomainStackCards() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-normal leading-[0.95] mb-6"
+            className="text-4xl md:text-6xl lg:text-7xl font-black text-[var(--foreground)] tracking-normal leading-[0.95] mb-6"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             OUR <span className="text-acm-blue">DOMAINS</span>
@@ -250,7 +250,7 @@ export default function DomainStackCards() {
           {/* Technical Domains Card - Sticky */}
           <motion.div
             style={{ scale: techScale }}
-            className="sticky top-24 z-20 bg-[#0a0a0a] border border-white/5 p-8 md:p-12 rounded-sm"
+            className="sticky top-24 z-20 bg-[var(--surface)] border border-white/5 p-8 md:p-12 rounded-sm"
           >
             <DomainSection 
               title="Technical Domains" 

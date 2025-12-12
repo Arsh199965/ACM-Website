@@ -7,7 +7,7 @@ import {
 
 export default function EventsPage() {
   return (
-    <main className="min-h-screen bg-[#030303] text-white selection:bg-acm-blue/30">
+    <main className="min-h-screen bg-[#030303] text-[var(--foreground)] selection:bg-acm-blue/30">
       <EventsHero />
       <EventsMarquee />
       <EventsShowcase />

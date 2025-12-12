@@ -76,7 +76,7 @@ export default function ClosingStatement() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen overflow-hidden bg-black py-16 md:py-32"
+      className="relative min-h-screen overflow-hidden bg-[var(--background)] py-16 md:py-32"
     >
       <ClosingBackgroundEffect />
 
@@ -114,7 +114,7 @@ export default function ClosingStatement() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="max-w-sm font-display text-2xl font-bold leading-tight md:max-w-4xl md:text-6xl lg:text-7xl"
         >
-          <span className="text-white">Ready to Build</span>
+          <span className="text-[var(--foreground)]">Ready to Build</span>
           <br />
           <span className="text-acm-blue">Something Extraordinary?</span>
         </motion.h2>
@@ -144,7 +144,7 @@ export default function ClosingStatement() {
             href="/join"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="group relative overflow-hidden rounded-full bg-acm-blue px-8 py-3.5 text-center font-medium text-white shadow-lg shadow-acm-blue/20 transition-all hover:bg-acm-blue-light hover:shadow-xl hover:shadow-acm-blue/30 md:px-10 md:py-4"
+            className="group relative overflow-hidden rounded-full bg-acm-blue px-8 py-3.5 text-center font-medium text-[var(--foreground)] shadow-lg shadow-acm-blue/20 transition-all hover:bg-acm-blue-light hover:shadow-xl hover:shadow-acm-blue/30 md:px-10 md:py-4"
           >
             <span className="relative z-10 flex items-center justify-center gap-2 text-sm md:gap-3 md:text-base">
               <span>Join ACM</span>
@@ -159,11 +159,11 @@ export default function ClosingStatement() {
             href="/events"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="group relative overflow-hidden rounded-full border border-white/20 bg-white/5 px-8 py-3.5 text-center font-medium text-white backdrop-blur-sm transition-all hover:border-white/40 hover:bg-white/10 md:px-10 md:py-4"
+            className="group relative overflow-hidden rounded-full border border-white/20 bg-white/5 px-8 py-3.5 text-center font-medium text-[var(--foreground)] backdrop-blur-sm transition-all hover:border-white/40 hover:bg-white/10 md:px-10 md:py-4"
           >
             <span className="flex items-center justify-center gap-2 text-sm md:gap-3 md:text-base">
               <span>View Events</span>
-              <span className="text-white/50 transition-colors group-hover:text-white">
+              <span className="text-white/50 transition-colors group-hover:text-[var(--foreground)]">
                 ↗
               </span>
             </span>
@@ -189,7 +189,7 @@ export default function ClosingStatement() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: false, amount: 0.6 }}
                 transition={{ duration: 0.4, delay: 0.8 + i * 0.1 }}
-                className="block font-display text-xl font-bold text-white md:text-4xl"
+                className="block font-display text-xl font-bold text-[var(--foreground)] md:text-4xl"
               >
                 {stat.value}
               </motion.span>
@@ -202,7 +202,7 @@ export default function ClosingStatement() {
       </motion.div>
 
       {/* Bottom fade */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-black md:h-32" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-[var(--background)] md:h-32" />
     </section>
   );
 }

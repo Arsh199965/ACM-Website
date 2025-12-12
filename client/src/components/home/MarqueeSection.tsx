@@ -19,7 +19,7 @@ export default function MarqueeSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full overflow-hidden bg-black py-12 sm:py-20 md:py-32 z-20"
+      className="relative w-full overflow-hidden bg-[var(--background)] py-12 sm:py-20 md:py-32 z-20"
     >
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-linear-to-b from-transparent via-acm-blue/2 to-transparent pointer-events-none" />

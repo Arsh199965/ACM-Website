@@ -75,7 +75,7 @@ export default function AboutChapter() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-normal leading-[0.95] mb-6"
+          className="text-4xl md:text-6xl lg:text-7xl font-black text-[var(--foreground)] tracking-normal leading-[0.95] mb-6"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           GGSIPU EDC <span className="text-acm-blue">ACM</span>
@@ -113,7 +113,7 @@ export default function AboutChapter() {
                 {detail.label}:
               </span>
               <span 
-                className="text-sm text-white font-medium"
+                className="text-sm text-[var(--foreground)] font-medium"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 {detail.value}
@@ -123,7 +123,7 @@ export default function AboutChapter() {
           <div className="flex items-center gap-2 px-4 py-2 bg-acm-blue/10 border border-acm-blue/20">
             <div className="w-2 h-2 rounded-full bg-green-500" />
             <span 
-              className="text-sm text-white font-medium"
+              className="text-sm text-[var(--foreground)] font-medium"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Active Chapter
@@ -146,7 +146,7 @@ export default function AboutChapter() {
                 className="text-white/50 text-base md:text-lg leading-[1.8]"
                 style={{ fontFamily: "var(--font-body)" }}
               >
-                The <span className="text-white font-medium">GGSIPU EDC ACM Student Chapter</span> represents 
+                The <span className="text-[var(--foreground)] font-medium">GGSIPU EDC ACM Student Chapter</span> represents 
                 the East Delhi Campus of Guru Gobind Singh Indraprastha University. Founded in 
                 <span className="text-white/70"> November 2024</span> under the University School of Automation 
                 and Robotics (USAR), the chapter unites students from four schools 
@@ -180,7 +180,7 @@ export default function AboutChapter() {
                   className="group inline-flex items-center gap-2 px-5 py-2.5 border border-acm-blue/30 hover:border-acm-blue bg-acm-blue/10 hover:bg-acm-blue/20 transition-all duration-300"
                 >
                   <span 
-                    className="text-sm text-white/80 group-hover:text-white transition-colors"
+                    className="text-sm text-white/80 group-hover:text-[var(--foreground)] transition-colors"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
                     Join ACM Global Membership
@@ -199,7 +199,7 @@ export default function AboutChapter() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative bg-[#0a0a0a] border border-white/5 p-12 md:p-16">
+            <div className="relative bg-[var(--surface)] border border-white/5 p-12 md:p-16">
               {/* Corner Accents */}
               <div className="absolute top-0 left-0 w-6 h-6 border-l-2 border-t-2 border-acm-blue/40" />
               <div className="absolute top-0 right-0 w-6 h-6 border-r-2 border-t-2 border-acm-blue/40" />
@@ -236,7 +236,7 @@ export default function AboutChapter() {
               className="absolute -bottom-6 -right-6 bg-acm-blue px-6 py-3"
             >
               <span 
-                className="text-white text-sm font-medium tracking-normal"
+                className="text-[var(--foreground)] text-sm font-medium tracking-normal"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Est. 2024
@@ -253,7 +253,7 @@ export default function AboutChapter() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative bg-[#0a0a0a] border border-white/5 p-8 md:p-10"
+            className="relative bg-[var(--surface)] border border-white/5 p-8 md:p-10"
           >
             {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-4 h-4 border-l-2 border-t-2 border-acm-blue/50" />
@@ -264,7 +264,7 @@ export default function AboutChapter() {
                 <Target className="w-6 h-6 text-acm-blue" strokeWidth={1.5} />
               </div>
               <h3 
-                className="text-2xl md:text-3xl font-black text-white"
+                className="text-2xl md:text-3xl font-black text-[var(--foreground)]"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 OUR MISSION
@@ -288,7 +288,7 @@ export default function AboutChapter() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="relative bg-[#0a0a0a] border border-white/5 p-8 md:p-10"
+            className="relative bg-[var(--surface)] border border-white/5 p-8 md:p-10"
           >
             {/* Corner Accents */}
             <div className="absolute top-0 right-0 w-4 h-4 border-r-2 border-t-2 border-acm-blue/50" />
@@ -299,7 +299,7 @@ export default function AboutChapter() {
                 <Eye className="w-6 h-6 text-acm-blue" strokeWidth={1.5} />
               </div>
               <h3 
-                className="text-2xl md:text-3xl font-black text-white"
+                className="text-2xl md:text-3xl font-black text-[var(--foreground)]"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 OUR VISION
@@ -331,7 +331,7 @@ export default function AboutChapter() {
               <Heart className="w-6 h-6 text-acm-blue" strokeWidth={1.5} />
             </div>
             <h3 
-              className="text-2xl md:text-3xl font-black text-white"
+              className="text-2xl md:text-3xl font-black text-[var(--foreground)]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               OUR VALUES
@@ -351,7 +351,7 @@ export default function AboutChapter() {
                 <div className="w-1.5 h-1.5 bg-acm-blue mt-2 shrink-0" />
                 <div>
                   <span 
-                    className="text-white font-medium"
+                    className="text-[var(--foreground)] font-medium"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
                     {value.title}
@@ -371,7 +371,7 @@ export default function AboutChapter() {
           transition={{ duration: 0.6, delay: 0.5 }}
         >
           <h3 
-            className="text-xl md:text-2xl font-black text-white mb-8"
+            className="text-xl md:text-2xl font-black text-[var(--foreground)] mb-8"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             OUR FOUR PILLARS
@@ -385,7 +385,7 @@ export default function AboutChapter() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                className="group relative bg-[#0a0a0a] border border-white/5 p-6 transition-all duration-300 hover:border-acm-blue/20"
+                className="group relative bg-[var(--surface)] border border-white/5 p-6 transition-all duration-300 hover:border-acm-blue/20"
               >
                 {/* Top Accent */}
                 <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-acm-blue/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -393,7 +393,7 @@ export default function AboutChapter() {
                 <pillar.icon className="w-8 h-8 text-acm-blue mb-4" strokeWidth={1.5} />
                 
                 <h4 
-                  className="text-lg font-bold text-white mb-2"
+                  className="text-lg font-bold text-[var(--foreground)] mb-2"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {pillar.title}

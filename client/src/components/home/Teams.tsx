@@ -63,7 +63,7 @@ function MemberCard({ member, index }: { member: TeamMember; index: number }) {
         {/* Content */}
         <div className="relative p-5 -mt-12">
           <h3
-            className="text-xl md:text-2xl font-black text-white mb-1 tracking-normal"
+            className="text-xl md:text-2xl font-black text-[var(--foreground)] mb-1 tracking-normal"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             {member.name}
@@ -135,7 +135,7 @@ function SectionHeader({
           </span>
         </div>
         <h3
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white tracking-normal"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-[var(--foreground)] tracking-normal"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {title}
@@ -191,7 +191,7 @@ export default function Teams() {
               </span>
             </div>
             <h2
-              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-normal"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-[var(--foreground)] tracking-normal"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               <TextReveal text="Our Team" delay={0.1} />
@@ -248,7 +248,7 @@ export default function Teams() {
               className="group inline-flex items-center gap-4 px-8 py-4 bg-white/3 border border-white/10 hover:border-acm-blue/40 hover:bg-acm-blue/5 transition-all duration-500"
             >
               <span
-                className="text-sm font-medium text-white/70 group-hover:text-white tracking-normal transition-colors duration-300"
+                className="text-sm font-medium text-white/70 group-hover:text-[var(--foreground)] tracking-normal transition-colors duration-300"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 View All Team Members
@@ -263,7 +263,7 @@ export default function Teams() {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-black to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-[var(--background)] to-transparent pointer-events-none" />
     </section>
   );
 }

@@ -54,7 +54,7 @@ export default function TeamsClosing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-normal leading-[0.95] mb-6"
+            className="text-4xl md:text-6xl lg:text-7xl font-black text-[var(--foreground)] tracking-normal leading-[0.95] mb-6"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             BE PART OF
@@ -98,7 +98,7 @@ export default function TeamsClosing() {
               className="group relative px-8 py-4 bg-acm-blue hover:bg-acm-blue/90 transition-all duration-300 overflow-hidden"
             >
               <span 
-                className="relative z-10 flex items-center gap-2 text-sm font-medium text-white tracking-normal uppercase"
+                className="relative z-10 flex items-center gap-2 text-sm font-medium text-[var(--foreground)] tracking-normal uppercase"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Join ACM
@@ -112,7 +112,7 @@ export default function TeamsClosing() {
               className="group px-8 py-4 border border-white/10 hover:border-acm-blue/50 bg-white/2 hover:bg-white/5 transition-all duration-300"
             >
               <span 
-                className="flex items-center gap-2 text-sm font-medium text-white/70 group-hover:text-white tracking-normal uppercase transition-colors"
+                className="flex items-center gap-2 text-sm font-medium text-white/70 group-hover:text-[var(--foreground)] tracking-normal uppercase transition-colors"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Learn More

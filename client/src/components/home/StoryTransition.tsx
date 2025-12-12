@@ -94,7 +94,7 @@ export default function StoryTransition({
 
         {/* Main Text */}
         <h2
-          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white tracking-normal leading-[1.1] mb-6 sm:mb-8"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-[var(--foreground)] tracking-normal leading-[1.1] mb-6 sm:mb-8"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {renderMainText()}
@@ -115,7 +115,7 @@ export default function StoryTransition({
       </motion.div>
 
       {/* Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-black to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-linear-to-t from-[var(--background)] to-transparent pointer-events-none" />
     </section>
   );
 }

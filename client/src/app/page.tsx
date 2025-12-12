@@ -1,16 +1,17 @@
-import { 
-  Hero,
-  AboutSection, 
-  MarqueeSection, 
-  EventsSection, 
-  GallerySection,
-  StoryTransition,
-  Teams
-} from "@/components/home";
+import dynamic from 'next/dynamic';
+import { Hero } from "@/components/home";
+
+// Dynamically load components below the fold
+const AboutSection = dynamic(() => import("@/components/home/AboutSection"), { ssr: true });
+const MarqueeSection = dynamic(() => import("@/components/home/MarqueeSection"), { ssr: true });
+const EventsSection = dynamic(() => import("@/components/home/EventsSection"), { ssr: true });
+const GallerySection = dynamic(() => import("@/components/home/GallerySection"), { ssr: true });
+const StoryTransition = dynamic(() => import("@/components/home/StoryTransition"), { ssr: true });
+const Teams = dynamic(() => import("@/components/home/Teams"), { ssr: true });
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen bg-[var(--background)]">
       <Hero />
       <AboutSection />
       <StoryTransition

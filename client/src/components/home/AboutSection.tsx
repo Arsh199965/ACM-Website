@@ -60,7 +60,7 @@ function SimpleCard({ card, index }: { card: typeof cards[0]; index: number }) {
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="group relative"
     >
-      <div className="relative h-full overflow-hidden bg-[#0a0a0a] border border-white/5 p-8 md:p-10 transition-all duration-300 hover:border-acm-blue/20">
+      <div className="relative h-full overflow-hidden bg-[var(--surface)] border border-white/5 p-8 md:p-10 transition-all duration-300 hover:border-acm-blue/20">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -69,7 +69,7 @@ function SimpleCard({ card, index }: { card: typeof cards[0]; index: number }) {
             fill
             className="object-cover opacity-60 grayscale group-hover:grayscale-0 group-hover:scale-105 group-hover:opacity-100 transition-all duration-500"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/90 via-[#0a0a0a]/40 to-[#0a0a0a]/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[var(--surface)]/90 via-[var(--surface)]/40 to-[var(--surface)]/90" />
         </div>
 
         {/* Top Accent Line */}
@@ -95,7 +95,7 @@ function SimpleCard({ card, index }: { card: typeof cards[0]; index: number }) {
 
           {/* Title */}
           <h3
-            className="text-3xl md:text-4xl font-black text-white mt-4 mb-4 tracking-normal leading-[1.1]"
+            className="text-3xl md:text-4xl font-black text-[var(--foreground)] mt-4 mb-4 tracking-normal leading-[1.1]"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             {card.title}
@@ -112,7 +112,7 @@ function SimpleCard({ card, index }: { card: typeof cards[0]; index: number }) {
           {/* Stats */}
           <div className="pt-6 border-t border-white/5">
             <div className="flex items-baseline gap-2">
-              <span className="text-3xl md:text-4xl font-black text-white" style={{ fontFamily: "var(--font-heading)" }}>
+              <span className="text-3xl md:text-4xl font-black text-[var(--foreground)]" style={{ fontFamily: "var(--font-heading)" }}>
                 {card.stats.value}
               </span>
               <span className="text-[10px] font-medium tracking-[0.2em] text-white/30 uppercase" style={{ fontFamily: "var(--font-body)" }}>
@@ -161,7 +161,7 @@ export default function AboutSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <h2
-              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-normal leading-[0.9]"
+              className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-[var(--foreground)] tracking-normal leading-[0.9]"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               <TextReveal text="Shaping" delay={0.1} />
@@ -208,8 +208,8 @@ export default function AboutSection() {
               </div>
               <p className="text-lg md:text-xl font-light text-white/40 leading-[1.6]" style={{ fontFamily: "var(--font-body)" }}>
                 We are a collective of{" "}
-                <span className="text-white font-medium">designers,</span>
-                {" "}<span className="text-white font-medium">developers,</span>
+                <span className="text-[var(--foreground)] font-medium">designers,</span>
+                {" "}<span className="text-[var(--foreground)] font-medium">developers,</span>
                 {" "}and{" "}
                 <span className="text-acm-blue font-medium">innovators</span>.
               </p>
@@ -237,7 +237,7 @@ export default function AboutSection() {
             className="group flex items-center gap-3 px-8 py-4 border border-white/10 hover:border-acm-blue/50 bg-white/2 hover:bg-acm-blue/5 transition-all duration-300"
           >
             <span
-              className="text-sm font-medium tracking-normal text-white/60 group-hover:text-white transition-colors"
+              className="text-sm font-medium tracking-normal text-white/60 group-hover:text-[var(--foreground)] transition-colors"
               style={{ fontFamily: "var(--font-body)" }}
             >
               Learn More About Us

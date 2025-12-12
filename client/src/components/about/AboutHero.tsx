@@ -20,7 +20,7 @@ export default function AboutHero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[100vh] w-full overflow-hidden bg-black"
+      className="relative min-h-[100vh] w-full overflow-hidden bg-[var(--background)]"
     >
       {/* Hero Container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden">
@@ -87,7 +87,7 @@ export default function AboutHero() {
         </div>
 
         {/* Gradient Overlays for Smooth Blending */}
-        <div className="absolute inset-0 bg-linear-to-b from-black via-transparent to-black" />
+        <div className="absolute inset-0 bg-linear-to-b from-[var(--background)] via-transparent to-[var(--background)]" />
         <div className="absolute inset-0 bg-linear-to-r from-black/60 via-transparent to-black/60" />
         <div className="absolute inset-0 bg-radial-[ellipse_at_center] from-transparent via-black/30 to-black/80" />
 
@@ -111,8 +111,8 @@ export default function AboutHero() {
                 height={33}
                 className="h-8 w-auto"
               />
-              <div className="h-px w-8 bg-gray-600" />
-              <span className="font-mono text-xs tracking-[0.2em] text-gray-500">
+              <div className="h-px w-8 bg-[var(--text-subtle)]" />
+              <span className="font-mono text-xs tracking-[0.2em] text-[var(--text-subtle)]">
                 GGSIPU EDC
               </span>
             </motion.div>
@@ -123,7 +123,7 @@ export default function AboutHero() {
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="text-[18vw] sm:text-[14vw] md:text-[12vw] lg:text-[10vw] font-bold text-white leading-[0.85] tracking-tight"
+                className="text-[18vw] sm:text-[14vw] md:text-[12vw] lg:text-[10vw] font-bold text-[var(--foreground)] leading-[0.85] tracking-tight"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 ABOUT
@@ -152,10 +152,10 @@ export default function AboutHero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
-              className="text-gray-400 text-lg md:text-xl max-w-xl leading-relaxed"
+              className="text-[var(--text-muted)] text-lg md:text-xl max-w-xl leading-relaxed"
             >
-              Where <span className="text-white">innovation</span> meets{" "}
-              <span className="text-white">community</span>. Building the future at{" "}
+              Where <span className="text-[var(--foreground)]">innovation</span> meets{" "}
+              <span className="text-[var(--foreground)]">community</span>. Building the future at{" "}
               <span className="text-acm-blue">GGSIPU</span>.
             </motion.p>
 
@@ -164,27 +164,27 @@ export default function AboutHero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 1 }}
-              className="mt-16 flex flex-wrap items-end justify-between gap-8 border-t border-gray-800 pt-8"
+              className="mt-16 flex flex-wrap items-end justify-between gap-8 border-t border-[var(--border)] pt-8"
             >
               <div className="space-y-1">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-gray-600">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-subtle)]">
                   Location
                 </p>
-                <p className="text-sm text-gray-300">East Delhi Campus</p>
+                <p className="text-sm text-[var(--text-muted)]">East Delhi Campus</p>
               </div>
 
               <div className="space-y-1">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-gray-600">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-subtle)]">
                   Members
                 </p>
-                <p className="text-sm text-gray-300">50+ Active</p>
+                <p className="text-sm text-[var(--text-muted)]">50+ Active</p>
               </div>
 
               <div className="space-y-1">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-gray-600">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-subtle)]">
                   Established
                 </p>
-                <p className="text-sm text-gray-300">2024</p>
+                <p className="text-sm text-[var(--text-muted)]">2024</p>
               </div>
 
               {/* Scroll Indicator */}
@@ -194,7 +194,7 @@ export default function AboutHero() {
                 className="hidden md:block"
               >
                 <div className="flex flex-col items-center gap-2">
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-gray-600">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-subtle)]">
                     Scroll
                   </span>
                   <div className="h-12 w-px bg-linear-to-b from-acm-blue to-transparent" />
@@ -206,7 +206,7 @@ export default function AboutHero() {
       </div>
 
       {/* Bottom Gradient for smooth transition */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-black to-transparent pointer-events-none z-30" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-[var(--background)] to-transparent pointer-events-none z-30" />
     </section>
   );
 }

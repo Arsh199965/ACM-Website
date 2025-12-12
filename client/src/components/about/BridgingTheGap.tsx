@@ -43,7 +43,7 @@ export default function BridgingTheGap() {
   return (
     <section
       ref={containerRef}
-      className="relative flex min-h-screen w-full items-center justify-center bg-black px-4 py-20 md:px-12 md:py-32"
+      className="relative flex min-h-screen w-full items-center justify-center bg-[var(--background)] px-4 py-20 md:px-12 md:py-32"
     >
       <motion.div
         style={{ opacity, scale }}
@@ -69,16 +69,16 @@ export default function BridgingTheGap() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="group relative rounded-xl border border-gray-800 bg-gray-900/20 p-3 transition-all duration-500 hover:border-acm-blue/50 md:rounded-3xl md:p-8"
+              className="group relative rounded-xl border border-[var(--border)] bg-[var(--surface)]/20 p-3 transition-all duration-500 hover:border-acm-blue/50 md:rounded-3xl md:p-8"
             >
               <div
                 className={`absolute inset-0 rounded-xl bg-linear-to-br ${item.color} opacity-0 transition-opacity duration-500 group-hover:opacity-10 md:rounded-3xl`}
               />
               <item.icon className="mx-auto mb-2 h-6 w-6 text-acm-blue transition-transform duration-300 group-hover:scale-110 md:mb-4 md:h-12 md:w-12" />
-              <h3 className="mb-0.5 font-display text-sm font-bold text-white md:mb-2 md:text-2xl">
+              <h3 className="mb-0.5 font-display text-sm font-bold text-[var(--foreground)] md:mb-2 md:text-2xl">
                 {item.title}
               </h3>
-              <p className="text-xs text-gray-400 md:text-base">{item.desc}</p>
+              <p className="text-xs text-[var(--text-muted)] md:text-base">{item.desc}</p>
             </motion.div>
           ))}
         </motion.div>

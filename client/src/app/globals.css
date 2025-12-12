@@ -21,6 +21,9 @@
   --background: #000000;
   --foreground: #ffffff;
   --acm-blue: #0085ca;
+  --text-muted: rgba(255, 255, 255, 0.5);
+  --text-subtle: rgba(255, 255, 255, 0.3);
+  --border: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {
@@ -49,7 +52,7 @@ body {
   html {
     overflow-x: clip;
   }
-  
+
   body {
     overflow-x: clip;
   }
@@ -82,7 +85,7 @@ body {
   html {
     scroll-behavior: auto;
   }
-  
+
   *,
   *::before,
   *::after {
@@ -143,7 +146,12 @@ button {
 }
 
 /* Text rendering optimization */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

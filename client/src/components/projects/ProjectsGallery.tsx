@@ -48,7 +48,7 @@ export default function ProjectsGallery({ projects }: ProjectsGalleryProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-normal leading-[0.95]"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-[var(--foreground)] tracking-normal leading-[0.95]"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           SELECTED <span className="text-acm-blue">PROJECTS</span>
@@ -114,7 +114,7 @@ function ProjectCard({
           />
           
           {/* Main Card */}
-          <div className="relative overflow-hidden bg-[#0a0a0a] border border-white/5 group-hover:border-acm-blue/20 transition-colors duration-500">
+          <div className="relative overflow-hidden bg-[var(--surface)] border border-white/5 group-hover:border-acm-blue/20 transition-colors duration-500">
             {/* Corner Accents */}
             <div className="absolute top-0 left-0 w-8 h-8 border-l-2 border-t-2 border-white/10 group-hover:border-acm-blue/40 transition-colors duration-500 z-10" />
             <div className="absolute top-0 right-0 w-8 h-8 border-r-2 border-t-2 border-white/10 group-hover:border-acm-blue/40 transition-colors duration-500 z-10" />
@@ -136,7 +136,7 @@ function ProjectCard({
               </motion.div>
               
               {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-linear-to-t from-[#0a0a0a] via-black/20 to-transparent opacity-70" />
+              <div className="absolute inset-0 bg-linear-to-t from-[var(--surface)] via-black/20 to-transparent opacity-70" />
               
               {/* Scan Line Effect */}
               <motion.div
@@ -222,7 +222,7 @@ function ProjectCard({
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-white mb-4 sm:mb-6 tracking-normal"
+              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black text-[var(--foreground)] mb-4 sm:mb-6 tracking-normal"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               {project.title}
@@ -302,7 +302,7 @@ function ProjectCard({
                       className="relative z-10 px-6 py-3 inline-flex items-center gap-3 border border-white/20 group-hover:border-acm-blue/50 bg-white/5 group-hover:bg-acm-blue/10 transition-all duration-300"
                       style={{ fontFamily: "var(--font-body)" }}
                     >
-                      <span className="text-sm text-white/80 group-hover:text-white transition-colors">
+                      <span className="text-sm text-white/80 group-hover:text-[var(--foreground)] transition-colors">
                         View Project
                       </span>
                       <ArrowUpRight className="w-4 h-4 text-acm-blue transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

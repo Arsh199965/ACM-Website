@@ -33,7 +33,7 @@ function EventCard({ event, index }: EventCardProps) {
         <div
           className={`relative flex flex-col ${
             isEven ? "md:flex-row" : "md:flex-row-reverse"
-          } gap-8 md:gap-12 p-6 md:p-10 bg-[#0a0a0a] border border-white/5 hover:border-acm-blue/20 transition-all duration-500`}
+          } gap-8 md:gap-12 p-6 md:p-10 bg-[var(--surface)] border border-white/5 hover:border-acm-blue/20 transition-all duration-500`}
         >
           {/* Corner Accents */}
           <div className="absolute top-0 left-0 w-6 h-6 border-l-2 border-t-2 border-white/10 group-hover:border-acm-blue/40 transition-colors duration-500 z-10" />
@@ -66,7 +66,7 @@ function EventCard({ event, index }: EventCardProps) {
 
             {/* Title */}
             <h3
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white mb-3 group-hover:text-acm-blue transition-colors leading-tight"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-[var(--foreground)] mb-3 group-hover:text-acm-blue transition-colors leading-tight"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               {event.title}
@@ -265,7 +265,7 @@ export default function EventsShowcase() {
               </div>
               
               <h2
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-normal"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[var(--foreground)] tracking-normal"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 DON&apos;T MISS <span className="text-green-400">OUT</span>
@@ -305,7 +305,7 @@ export default function EventsShowcase() {
           
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <h2
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-normal"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[var(--foreground)] tracking-normal"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               EXPLORE THE <span className="text-acm-blue">ARCHIVE</span>

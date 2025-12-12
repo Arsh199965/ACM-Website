@@ -79,7 +79,7 @@ export default function TeamSection({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-normal leading-[0.95] mb-4"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-[var(--foreground)] tracking-normal leading-[0.95] mb-4"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             {title}
@@ -144,7 +144,7 @@ export default function TeamSection({
                     }}
                     className="group relative"
                   >
-                    <div className="relative bg-[#0a0a0a] border border-white/5 p-6 transition-all duration-500 hover:border-acm-blue/30 overflow-hidden h-full">
+                    <div className="relative bg-[var(--surface)] border border-white/5 p-6 transition-all duration-500 hover:border-acm-blue/30 overflow-hidden h-full">
                       {/* Corner Accents */}
                       <div className="absolute top-0 left-0 w-3 h-3 border-l border-t border-white/10 group-hover:border-acm-blue/40 transition-colors duration-300" />
                       <div className="absolute bottom-0 right-0 w-3 h-3 border-r border-b border-white/10 group-hover:border-acm-blue/40 transition-colors duration-300" />
@@ -158,7 +158,7 @@ export default function TeamSection({
 
                       {/* Content */}
                       <h4 
-                        className="text-lg font-black text-white mb-2 tracking-normal group-hover:text-acm-blue transition-colors duration-300"
+                        className="text-lg font-black text-[var(--foreground)] mb-2 tracking-normal group-hover:text-acm-blue transition-colors duration-300"
                         style={{ fontFamily: "var(--font-heading)" }}
                       >
                         {area.title}

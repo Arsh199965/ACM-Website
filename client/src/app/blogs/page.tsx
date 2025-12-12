@@ -26,7 +26,7 @@ export default function BlogsPage() {
   }, []);
 
   return (
-    <main className="bg-black text-white selection:bg-acm-blue/30">
+    <main className="bg-[var(--background)] text-[var(--foreground)] selection:bg-acm-blue/30">
       {/* Cinematic hero with parallax */}
       <BlogsHero />
 

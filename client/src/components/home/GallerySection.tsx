@@ -144,7 +144,7 @@ export default function MarqueeColumnSection() {
     ];
 
     return (
-        <div className="bg-black min-h-[300vh] relative z-10">
+        <div className="bg-[var(--background)] min-h-[300vh] relative z-10">
             {/* Section Header */}
             <div className="relative z-20 pt-20 sm:pt-32 pb-6 sm:pb-8 px-4 sm:px-6 md:px-12 lg:px-20">
                 <div className="max-w-[1400px] mx-auto">
@@ -154,7 +154,7 @@ export default function MarqueeColumnSection() {
                             Gallery
                         </span>
                     </div>
-                    <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-normal" style={{ fontFamily: "var(--font-heading)" }}>
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-[var(--foreground)] tracking-normal" style={{ fontFamily: "var(--font-heading)" }}>
                         Captured Moments
                     </h2>
                 </div>
@@ -168,7 +168,7 @@ export default function MarqueeColumnSection() {
                     <MarqueeColumn images={col4Images} speed={0.35} className="hidden md:block mt-16" />
                 </div>
 
-                <div className="absolute inset-0 pointer-events-none bg-linear-to-b from-black via-transparent to-black" />
+                <div className="absolute inset-0 pointer-events-none bg-linear-to-b from-[var(--background)] via-transparent to-[var(--background)]" />
             </section>
 
             <div className="h-screen" />

@@ -93,7 +93,7 @@ export default function ProjectsShowcase({ projects }: ProjectsShowcaseProps) {
     >
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* Background */}
-        <div className="absolute inset-0 bg-black" />
+        <div className="absolute inset-0 bg-[var(--background)]" />
 
         {/* Section label */}
         <motion.div
@@ -166,7 +166,7 @@ function ProjectCounter({
 
   return (
     <div className="flex items-baseline gap-1 font-mono md:gap-2">
-      <motion.span className="text-xl font-bold text-white md:text-3xl">
+      <motion.span className="text-xl font-bold text-[var(--foreground)] md:text-3xl">
         {currentIndex}
       </motion.span>
       <span className="text-white/30">/</span>
@@ -321,7 +321,7 @@ function ProjectSlide({ project, index }: { project: Project; index: number }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.5 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="-mt-8 font-display text-2xl font-bold text-white md:-mt-16 md:text-6xl lg:text-7xl"
+            className="-mt-8 font-display text-2xl font-bold text-[var(--foreground)] md:-mt-16 md:text-6xl lg:text-7xl"
           >
             {project.title}
           </motion.h2>

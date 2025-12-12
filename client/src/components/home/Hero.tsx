@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen w-full bg-black overflow-hidden overflow-x-hidden">
+    <section className="relative min-h-screen w-full bg-[var(--background)] overflow-hidden overflow-x-hidden">
       {/* Background Video */}
       <div className="absolute inset-0">
         <video
@@ -14,6 +14,7 @@ export default function Hero() {
           loop
           muted
           playsInline
+          poster="/home/EDC-poster.webp"
           className="w-full h-full object-cover opacity-40"
         >
           <source src="/home/EDC.mp4" type="video/mp4" />
@@ -21,7 +22,7 @@ export default function Hero() {
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/60" />
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-linear-to-b from-black via-transparent to-black" />
+        <div className="absolute inset-0 bg-linear-to-b from-[var(--background)] via-transparent to-[var(--background)]" />
       </div>
 
       {/* Ambient Glow Orbs */}
@@ -82,7 +83,7 @@ export default function Hero() {
               {/* Main Title */}
               <h1 className="mb-4 sm:mb-6 md:mb-8">
                 <span
-                  className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black text-white leading-[0.9] tracking-normal"
+                  className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black text-[var(--foreground)] leading-[0.9] tracking-normal"
                   style={{ fontFamily: "var(--font-heading)" }}
                 >
                   GGSIPU
@@ -115,7 +116,7 @@ export default function Hero() {
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-6 sm:px-8 py-3 sm:py-4 bg-acm-blue text-white text-sm tracking-[0.2em] uppercase font-medium hover:bg-acm-blue/90 transition-colors cursor-pointer"
+                    className="px-6 sm:px-8 py-3 sm:py-4 bg-acm-blue text-[var(--foreground)] text-sm tracking-[0.2em] uppercase font-medium hover:bg-acm-blue/90 transition-colors cursor-pointer"
                   >
                     Join Community
                   </motion.div>
@@ -124,7 +125,7 @@ export default function Hero() {
                   <motion.span
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="group flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 border border-white/20 text-white/70 text-sm tracking-[0.2em] uppercase hover:border-white/40 hover:text-white transition-all cursor-pointer"
+                    className="group flex items-center justify-center gap-3 px-6 sm:px-8 py-3 sm:py-4 border border-white/20 text-white/70 text-sm tracking-[0.2em] uppercase hover:border-white/40 hover:text-[var(--foreground)] transition-all cursor-pointer"
                   >
                     <span>Explore Events</span>
                     <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -169,7 +170,7 @@ export default function Hero() {
                 transition={{ duration: 0.6, delay: 0.8 }}
                 className="absolute -left-8 top-1/4 bg-black/80 backdrop-blur-sm border border-white/10 px-6 py-4"
               >
-                <span className="block text-3xl font-black text-white" style={{ fontFamily: "var(--font-heading)" }}>50+</span>
+                <span className="block text-3xl font-black text-[var(--foreground)]" style={{ fontFamily: "var(--font-heading)" }}>50+</span>
                 <span className="text-[10px] tracking-[0.2em] text-white/40 uppercase">Members</span>
               </motion.div>
 
@@ -179,7 +180,7 @@ export default function Hero() {
                 transition={{ duration: 0.6, delay: 0.9 }}
                 className="absolute -right-4 top-1/2 bg-black/80 backdrop-blur-sm border border-white/10 px-6 py-4"
               >
-                <span className="block text-3xl font-black text-white" style={{ fontFamily: "var(--font-heading)" }}>25+</span>
+                <span className="block text-3xl font-black text-[var(--foreground)]" style={{ fontFamily: "var(--font-heading)" }}>25+</span>
                 <span className="text-[10px] tracking-[0.2em] text-white/40 uppercase">Events</span>
               </motion.div>
 
@@ -189,7 +190,7 @@ export default function Hero() {
                 transition={{ duration: 0.6, delay: 1 }}
                 className="absolute left-1/4 -bottom-4 bg-black/80 backdrop-blur-sm border border-white/10 px-6 py-4"
               >
-                <span className="block text-3xl font-black text-white" style={{ fontFamily: "var(--font-heading)" }}>12+</span>
+                <span className="block text-3xl font-black text-[var(--foreground)]" style={{ fontFamily: "var(--font-heading)" }}>12+</span>
                 <span className="text-[10px] tracking-[0.2em] text-white/40 uppercase">Domains</span>
               </motion.div>
             </motion.div>
@@ -209,7 +210,7 @@ export default function Hero() {
               <div className="flex gap-4 sm:gap-8 lg:hidden">
                 {[{ value: "50+", label: "Members" }, { value: "25+", label: "Events" }, { value: "12+", label: "Domains" }].map((stat) => (
                   <div key={stat.label} className="flex items-baseline gap-1 sm:gap-2">
-                    <span className="text-xl sm:text-2xl font-black text-white" style={{ fontFamily: "var(--font-heading)" }}>{stat.value}</span>
+                    <span className="text-xl sm:text-2xl font-black text-[var(--foreground)]" style={{ fontFamily: "var(--font-heading)" }}>{stat.value}</span>
                     <span className="text-[8px] sm:text-[9px] tracking-[0.15em] sm:tracking-[0.2em] text-white/30 uppercase">{stat.label}</span>
                   </div>
                 ))}

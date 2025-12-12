@@ -86,7 +86,7 @@ export default function EventsParallax() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-4xl md:text-6xl lg:text-8xl font-black text-white leading-tight mb-6"
+          className="text-4xl md:text-6xl lg:text-8xl font-black text-[var(--foreground)] leading-tight mb-6"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           EXPERIENCES THAT
@@ -124,7 +124,7 @@ export default function EventsParallax() {
           ].map((stat, i) => (
             <div key={i} className="text-center">
               <span
-                className="block text-2xl md:text-4xl font-black text-white"
+                className="block text-2xl md:text-4xl font-black text-[var(--foreground)]"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 {stat.value}

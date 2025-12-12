@@ -20,7 +20,7 @@ export default function ScrollIndicator() {
         }}
         className="flex flex-col items-center"
       >
-        <div className="text-xs uppercase tracking-[0.3em] text-gray-500 mb-3">
+        <div className="text-xs uppercase tracking-[0.3em] text-[var(--text-subtle)] mb-3">
           Scroll
         </div>
         <ChevronDown className="w-5 h-5 text-acm-blue" strokeWidth={1.5} />

@@ -131,9 +131,9 @@ export default function EventPageContent({ event }: EventPageContentProps) {
               href="/events"
               className="group flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:border-white/20 transition-all"
             >
-              <ArrowLeft className="w-4 h-4 text-white/60 group-hover:text-white transition-colors" />
+              <ArrowLeft className="w-4 h-4 text-white/60 group-hover:text-[var(--foreground)] transition-colors" />
               <span
-                className="text-xs text-white/60 group-hover:text-white transition-colors"
+                className="text-xs text-white/60 group-hover:text-[var(--foreground)] transition-colors"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 All Events
@@ -211,7 +211,7 @@ export default function EventPageContent({ event }: EventPageContentProps) {
                             <div className={`absolute inset-0 flex items-center justify-center ${activeSlide === idx ? "bg-acm-blue/40" : "bg-black/50"
                               }`}>
                               <span
-                                className="text-white font-bold text-lg"
+                                className="text-[var(--foreground)] font-bold text-lg"
                                 style={{ fontFamily: "var(--font-heading)" }}
                               >
                                 {idx + 1}
@@ -279,7 +279,7 @@ export default function EventPageContent({ event }: EventPageContentProps) {
                     className="mb-6"
                   >
                     <h1
-                      className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight"
+                      className="text-3xl md:text-5xl lg:text-6xl font-black text-[var(--foreground)] leading-tight"
                       style={{ fontFamily: "var(--font-heading)" }}
                     >
                       {event.title}
@@ -327,7 +327,7 @@ export default function EventPageContent({ event }: EventPageContentProps) {
                           <motion.button
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className="inline-flex items-center gap-3 px-8 py-4 bg-acm-blue text-white font-semibold rounded-full hover:bg-acm-blue/90 transition-colors"
+                            className="inline-flex items-center gap-3 px-8 py-4 bg-acm-blue text-[var(--foreground)] font-semibold rounded-full hover:bg-acm-blue/90 transition-colors"
                           >
                             <span style={{ fontFamily: "var(--font-body)" }}>
                               Register Now
@@ -400,7 +400,7 @@ export default function EventPageContent({ event }: EventPageContentProps) {
                   className="mb-6"
                 >
                   <h1
-                    className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight"
+                    className="text-4xl md:text-6xl lg:text-7xl font-black text-[var(--foreground)] leading-tight"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
                     {event.title}
@@ -457,7 +457,7 @@ export default function EventPageContent({ event }: EventPageContentProps) {
                         <motion.button
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
-                          className="inline-flex items-center gap-3 px-8 py-4 bg-acm-blue text-white font-semibold rounded-full hover:bg-acm-blue/90 transition-colors"
+                          className="inline-flex items-center gap-3 px-8 py-4 bg-acm-blue text-[var(--foreground)] font-semibold rounded-full hover:bg-acm-blue/90 transition-colors"
                         >
                           <span style={{ fontFamily: "var(--font-body)" }}>
                             Register Now
@@ -730,7 +730,7 @@ export default function EventPageContent({ event }: EventPageContentProps) {
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                       <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
-                        <Camera className="w-5 h-5 text-white" />
+                        <Camera className="w-5 h-5 text-[var(--foreground)]" />
                       </div>
                     </div>
                   </motion.div>
@@ -759,7 +759,7 @@ export default function EventPageContent({ event }: EventPageContentProps) {
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-3 px-8 py-4 border border-white/20 text-white font-medium rounded-full hover:border-acm-blue/50 hover:bg-acm-blue/5 transition-all"
+                className="inline-flex items-center gap-3 px-8 py-4 border border-white/20 text-[var(--foreground)] font-medium rounded-full hover:border-acm-blue/50 hover:bg-acm-blue/5 transition-all"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span style={{ fontFamily: "var(--font-body)" }}>
@@ -781,7 +781,7 @@ export default function EventPageContent({ event }: EventPageContentProps) {
         onClick={scrollToTop}
         className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-acm-blue/90 rounded-full flex items-center justify-center shadow-lg hover:bg-acm-blue transition-colors"
       >
-        <ChevronUp className="w-5 h-5 text-white" />
+        <ChevronUp className="w-5 h-5 text-[var(--foreground)]" />
       </motion.button>
 
       {/* Lightbox */}
@@ -797,7 +797,7 @@ export default function EventPageContent({ event }: EventPageContentProps) {
             className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
             onClick={() => setLightboxImage(null)}
           >
-            <X className="w-6 h-6 text-white" />
+            <X className="w-6 h-6 text-[var(--foreground)]" />
           </button>
           <motion.div
             initial={{ scale: 0.9 }}
@@ -842,7 +842,7 @@ function ContentSection({
       <div className="flex items-center gap-3 mb-6">
         <Icon className="w-5 h-5 text-acm-blue/60" />
         <h2
-          className="text-xl md:text-2xl font-bold text-white"
+          className="text-xl md:text-2xl font-bold text-[var(--foreground)]"
           style={{ fontFamily: "var(--font-heading)" }}
         >
           {title}

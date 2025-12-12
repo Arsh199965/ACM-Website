@@ -56,7 +56,7 @@ export default function FeaturedDeepDive({ projects }: FeaturedDeepDiveProps) {
             <div className="h-px w-10 bg-acm-blue/50 md:hidden" />
           </div>
           <h2 className="font-display text-3xl font-bold md:text-6xl lg:text-7xl">
-            <span className="text-white">Featured</span>
+            <span className="text-[var(--foreground)]">Featured</span>
             <br />
             <span className="text-white/30">Projects</span>
           </h2>
@@ -173,7 +173,7 @@ function FeaturedProjectCard({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.55 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="font-display text-2xl font-bold text-white md:text-5xl"
+          className="font-display text-2xl font-bold text-[var(--foreground)] md:text-5xl"
         >
           {project.title}
         </motion.h3>
@@ -251,7 +251,7 @@ function FeaturedProjectCard({
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-normalr text-white transition-colors hover:text-acm-blue md:gap-3 md:text-sm"
+              className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-normalr text-[var(--foreground)] transition-colors hover:text-acm-blue md:gap-3 md:text-sm"
             >
               <span>View Project</span>
               <span className="relative h-px w-8 bg-white/30 transition-all group-hover:w-12 group-hover:bg-acm-blue md:w-10 md:group-hover:w-16">

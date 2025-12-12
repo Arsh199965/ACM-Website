@@ -20,7 +20,7 @@ export default function HeroSection() {
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* Background */}
         <div
-          className="absolute inset-0 bg-black"
+          className="absolute inset-0 bg-[var(--background)]"
           style={{
             background:
               "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 133, 202, 0.15), transparent), linear-gradient(180deg, #000 0%, #050510 100%)",
@@ -67,7 +67,7 @@ export default function HeroSection() {
               transition={{ duration: 1, ease: [0.25, 1, 0.5, 1], delay: 0.4 }}
               className="text-center font-display text-5xl font-bold leading-[0.9] tracking-normal md:text-8xl lg:text-9xl"
             >
-              <span className="block text-white">Projects that</span>
+              <span className="block text-[var(--foreground)]">Projects that</span>
               <span className="block text-acm-blue">breathe.</span>
             </motion.h1>
           </div>
@@ -106,7 +106,7 @@ export default function HeroSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.1 + index * 0.1 }}
               >
-                <div className="text-2xl font-bold text-white md:text-5xl">
+                <div className="text-2xl font-bold text-[var(--foreground)] md:text-5xl">
                   {stat.value}
                 </div>
                 <div className="mt-1 font-mono text-[8px] uppercase tracking-[0.2em] text-white/40 md:text-xs md:tracking-[0.3em]">

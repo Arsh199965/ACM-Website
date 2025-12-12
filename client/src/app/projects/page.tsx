@@ -8,7 +8,7 @@ import { projects } from "@/data/projectsData";
 
 export default function ProjectsPage() {
   return (
-    <main className="bg-[#030303] text-white selection:bg-acm-blue/30">
+    <main className="bg-[#030303] text-[var(--foreground)] selection:bg-acm-blue/30">
       <ProjectsHero />
       <ProjectsMarquee />
       <ProjectsGallery projects={projects} />

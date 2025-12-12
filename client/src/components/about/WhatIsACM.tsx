@@ -47,7 +47,7 @@ export default function WhatIsACM() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-normal leading-[0.95] mb-8"
+              className="text-4xl md:text-6xl lg:text-7xl font-black text-[var(--foreground)] tracking-normal leading-[0.95] mb-8"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               WHAT IS{" "}
@@ -63,7 +63,7 @@ export default function WhatIsACM() {
               className="text-white/50 text-base md:text-lg leading-[1.8] mb-6"
               style={{ fontFamily: "var(--font-body)" }}
             >
-              The <span className="text-white font-medium">Association for Computing Machinery</span> is 
+              The <span className="text-[var(--foreground)] font-medium">Association for Computing Machinery</span> is 
               the world&apos;s largest educational and scientific computing society, 
               uniting educators, researchers, and professionals to inspire dialogue, 
               share resources, and address the field&apos;s challenges.
@@ -96,7 +96,7 @@ export default function WhatIsACM() {
               ].map((stat, i) => (
                 <div key={i} className="border-l border-white/10 pl-4">
                   <div 
-                    className="text-2xl md:text-3xl font-black text-white mb-1"
+                    className="text-2xl md:text-3xl font-black text-[var(--foreground)] mb-1"
                     style={{ fontFamily: "var(--font-heading)" }}
                   >
                     {stat.value}
@@ -137,7 +137,7 @@ export default function WhatIsACM() {
             className="relative"
           >
             {/* ACM Logo Card */}
-            <div className="relative bg-[#0a0a0a] border border-white/5 p-12 md:p-16">
+            <div className="relative bg-[var(--surface)] border border-white/5 p-12 md:p-16">
               {/* Corner Accents */}
               <div className="absolute top-0 left-0 w-6 h-6 border-l-2 border-t-2 border-acm-blue/40" />
               <div className="absolute top-0 right-0 w-6 h-6 border-r-2 border-t-2 border-acm-blue/40" />
@@ -174,7 +174,7 @@ export default function WhatIsACM() {
               className="absolute -bottom-6 -right-6 bg-acm-blue px-6 py-3"
             >
               <span 
-                className="text-white text-sm font-medium tracking-normal"
+                className="text-[var(--foreground)] text-sm font-medium tracking-normal"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 Est. 1947
@@ -203,7 +203,7 @@ export default function WhatIsACM() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative order-2 lg:order-1"
             >
-              <div className="relative bg-[#0a0a0a] border border-white/5 p-12 md:p-16">
+              <div className="relative bg-[var(--surface)] border border-white/5 p-12 md:p-16">
                 {/* Corner Accents */}
                 <div className="absolute top-0 left-0 w-6 h-6 border-l-2 border-t-2 border-acm-blue/40" />
                 <div className="absolute top-0 right-0 w-6 h-6 border-r-2 border-t-2 border-acm-blue/40" />
@@ -240,7 +240,7 @@ export default function WhatIsACM() {
                 className="absolute -bottom-6 -left-6 bg-acm-blue px-6 py-3"
               >
                 <span 
-                  className="text-white text-sm font-medium tracking-normal"
+                  className="text-[var(--foreground)] text-sm font-medium tracking-normal"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   Est. 2010
@@ -255,7 +255,7 @@ export default function WhatIsACM() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="text-3xl md:text-5xl lg:text-6xl font-black text-white tracking-normal leading-[0.95] mb-6"
+                className="text-3xl md:text-5xl lg:text-6xl font-black text-[var(--foreground)] tracking-normal leading-[0.95] mb-6"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 ACM <span className="text-acm-blue">INDIA</span>
@@ -269,7 +269,7 @@ export default function WhatIsACM() {
                 className="text-white/50 text-base md:text-lg leading-[1.8] mb-6"
                 style={{ fontFamily: "var(--font-body)" }}
               >
-                <span className="text-white font-medium">ACM India</span> is a council of ACM that 
+                <span className="text-[var(--foreground)] font-medium">ACM India</span> is a council of ACM that 
                 serves the computing community in India. It aims to expand computing research, 
                 education, and community in India by organizing conferences, sponsoring events, 
                 and supporting student chapters across the country.
@@ -304,7 +304,7 @@ export default function WhatIsACM() {
                 ].map((stat, i) => (
                   <div key={i} className="border-l border-white/10 pl-4">
                     <div 
-                      className="text-xl md:text-2xl font-black text-white mb-1"
+                      className="text-xl md:text-2xl font-black text-[var(--foreground)] mb-1"
                       style={{ fontFamily: "var(--font-heading)" }}
                     >
                       {stat.value}

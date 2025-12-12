@@ -51,7 +51,7 @@ export default function FAQSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-black overflow-hidden py-24 md:py-40"
+      className="relative w-full bg-[var(--background)] overflow-hidden py-24 md:py-40"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
@@ -85,7 +85,7 @@ export default function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-normal leading-[0.95] mb-6 sticky top-32"
+              className="text-4xl md:text-6xl lg:text-7xl font-black text-[var(--foreground)] tracking-normal leading-[0.95] mb-6 sticky top-32"
               style={{ fontFamily: "var(--font-heading)" }}
             >
               FREQUENTLY
@@ -107,7 +107,7 @@ export default function FAQSection() {
                   className="group"
                 >
                   <div 
-                    className={`relative bg-[#0a0a0a] border transition-all duration-300 ${
+                    className={`relative bg-[var(--surface)] border transition-all duration-300 ${
                       openIndex === index 
                         ? 'border-acm-blue/30' 
                         : 'border-white/5 hover:border-white/10'

@@ -27,7 +27,7 @@ export default function MemberCard({ member, index }: MemberCardProps) {
       className="group relative"
     >
       {/* Main Card */}
-      <div className="relative bg-[#0a0a0a] border border-white/5 overflow-hidden transition-all duration-500 hover:border-acm-blue/30">
+      <div className="relative bg-[var(--surface)] border border-white/5 overflow-hidden transition-all duration-500 hover:border-acm-blue/30">
         {/* Corner Accents */}
         <div className="absolute top-0 left-0 w-4 h-4 border-l border-t border-white/10 group-hover:border-acm-blue/40 transition-colors duration-300 z-10" />
         <div className="absolute top-0 right-0 w-4 h-4 border-r border-t border-white/10 group-hover:border-acm-blue/40 transition-colors duration-300 z-10" />
@@ -45,7 +45,7 @@ export default function MemberCard({ member, index }: MemberCardProps) {
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-linear-to-t from-[#0a0a0a] via-transparent to-transparent opacity-80" />
+              <div className="absolute inset-0 bg-linear-to-t from-[var(--surface)] via-transparent to-transparent opacity-80" />
             </>
           ) : (
             <>
@@ -87,7 +87,7 @@ export default function MemberCard({ member, index }: MemberCardProps) {
               </div>
 
               {/* Gradient Overlay for placeholder */}
-              <div className="absolute inset-0 bg-linear-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-[var(--surface)] via-[var(--surface)]/50 to-transparent" />
             </>
           )}
 
@@ -108,7 +108,7 @@ export default function MemberCard({ member, index }: MemberCardProps) {
         </div>
 
         {/* Info Section */}
-        <div className="relative p-5 bg-[#0a0a0a]">
+        <div className="relative p-5 bg-[var(--surface)]">
           {/* Role Badge */}
           <div className="mb-3">
             <span
@@ -123,7 +123,7 @@ export default function MemberCard({ member, index }: MemberCardProps) {
           <h3
             className={`text-lg md:text-xl font-black tracking-normal transition-all duration-300 mb-3 ${isTBA
               ? "text-white/20 italic"
-              : "text-white group-hover:text-acm-blue"
+              : "text-[var(--foreground)] group-hover:text-acm-blue"
               }`}
             style={{ fontFamily: "var(--font-heading)" }}
           >

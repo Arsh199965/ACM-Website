@@ -67,13 +67,13 @@ export default function StoryIntro() {
   return (
     <section
       ref={containerRef}
-      className="relative flex min-h-screen w-full items-center justify-center bg-black px-4 py-20 md:px-12 md:py-32"
+      className="relative flex min-h-screen w-full items-center justify-center bg-[var(--background)] px-4 py-20 md:px-12 md:py-32"
     >
       <motion.div
         style={{ opacity, y }}
         className="mx-auto max-w-5xl space-y-8 text-center md:space-y-12"
       >
-        <div className="font-display text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+        <div className="font-display text-3xl font-bold leading-tight text-[var(--foreground)] sm:text-4xl md:text-5xl lg:text-6xl">
           <WaterFillText>
             Beyond launch, we offer ongoing support and community partnerships
             to help you scale your potential.
@@ -94,13 +94,13 @@ export default function StoryIntro() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: false }}
               transition={{ duration: 0.6, delay: index * 0.15 }}
-              className="flex flex-col items-center gap-2 rounded-xl border border-gray-800 bg-gray-900/20 p-3 backdrop-blur-sm transition-all duration-300 hover:border-acm-blue/30 hover:bg-gray-900/40 md:gap-4 md:rounded-2xl md:p-6"
+              className="flex flex-col items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface)]/20 p-3 backdrop-blur-sm transition-all duration-300 hover:border-acm-blue/30 hover:bg-[var(--surface)]/40 md:gap-4 md:rounded-2xl md:p-6"
             >
               <stat.icon
                 className="h-5 w-5 text-acm-blue md:h-10 md:w-10"
                 strokeWidth={1.5}
               />
-              <span className="text-center text-xs font-medium text-gray-300 md:text-lg">
+              <span className="text-center text-xs font-medium text-[var(--text-muted)] md:text-lg">
                 {stat.label}
               </span>
             </motion.div>

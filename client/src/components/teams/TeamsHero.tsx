@@ -20,7 +20,7 @@ export default function TeamsHero() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[120vh] w-full overflow-hidden bg-black"
+      className="relative min-h-[120vh] w-full overflow-hidden bg-[var(--background)]"
     >
       {/* Hero Container */}
       <div className="sticky top-0 h-screen w-full overflow-hidden">
@@ -111,8 +111,8 @@ export default function TeamsHero() {
                 height={33}
                 className="h-8 w-auto"
               />
-              <div className="h-px w-8 bg-gray-600" />
-              <span className="font-mono text-xs tracking-[0.2em] text-gray-500">
+              <div className="h-px w-8 bg-[var(--text-subtle)]" />
+              <span className="font-mono text-xs tracking-[0.2em] text-[var(--text-subtle)]">
                 MEET THE VISIONARIES
               </span>
             </motion.div>
@@ -123,7 +123,7 @@ export default function TeamsHero() {
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="text-[18vw] sm:text-[14vw] md:text-[12vw] lg:text-[10vw] font-bold text-white leading-[0.85] tracking-tight"
+                className="text-[18vw] sm:text-[14vw] md:text-[12vw] lg:text-[10vw] font-bold text-[var(--foreground)] leading-[0.85] tracking-tight"
                 style={{ fontFamily: "var(--font-heading)" }}
               >
                 OUR
@@ -159,11 +159,11 @@ export default function TeamsHero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.7 }}
-              className="text-gray-400 text-lg md:text-xl max-w-xl leading-relaxed"
+              className="text-[var(--text-muted)] text-lg md:text-xl max-w-xl leading-relaxed"
             >
-              The <span className="text-white">innovators</span>,{" "}
-              <span className="text-white">creators</span>, and{" "}
-              <span className="text-white">leaders</span> who make our chapter{" "}
+              The <span className="text-[var(--foreground)]">innovators</span>,{" "}
+              <span className="text-[var(--foreground)]">creators</span>, and{" "}
+              <span className="text-[var(--foreground)]">leaders</span> who make our chapter{" "}
               <span className="text-acm-blue">extraordinary</span>.
             </motion.p>
 
@@ -172,27 +172,27 @@ export default function TeamsHero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 1 }}
-              className="mt-16 flex flex-wrap items-end justify-between gap-8 border-t border-gray-800 pt-8"
+              className="mt-16 flex flex-wrap items-end justify-between gap-8 border-t border-[var(--border)] pt-8"
             >
               <div className="space-y-1">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-gray-600">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-subtle)]">
                   Core Members
                 </p>
-                <p className="text-sm text-gray-300">15+ Active</p>
+                <p className="text-sm text-[var(--text-muted)]">15+ Active</p>
               </div>
 
               <div className="space-y-1">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-gray-600">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-subtle)]">
                   Domains
                 </p>
-                <p className="text-sm text-gray-300">4 Specializations</p>
+                <p className="text-sm text-[var(--text-muted)]">4 Specializations</p>
               </div>
 
               <div className="space-y-1">
-                <p className="font-mono text-[10px] uppercase tracking-wider text-gray-600">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-subtle)]">
                   Faculty Mentors
                 </p>
-                <p className="text-sm text-gray-300">2 Advisors</p>
+                <p className="text-sm text-[var(--text-muted)]">2 Advisors</p>
               </div>
 
               {/* Scroll Indicator */}
@@ -202,7 +202,7 @@ export default function TeamsHero() {
                 className="hidden md:block"
               >
                 <div className="flex flex-col items-center gap-2">
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-gray-600">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-subtle)]">
                     Scroll
                   </span>
                   <div className="h-12 w-px bg-linear-to-b from-acm-blue to-transparent" />
@@ -214,7 +214,7 @@ export default function TeamsHero() {
       </div>
 
       {/* Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-black to-transparent pointer-events-none z-30" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-[var(--background)] to-transparent pointer-events-none z-30" />
     </section>
   );
 }

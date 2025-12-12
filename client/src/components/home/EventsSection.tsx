@@ -56,7 +56,7 @@ function UpcomingEventCard({ event }: { event: UpcomingEvent }) {
       initial={{ opacity: 0, y: 40 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-      className="relative overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-[#0a0a0a] to-[#050505]"
+      className="relative overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-[var(--surface)] to-[#050505]"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2">
         {/* Left: Event Poster Image */}
@@ -91,7 +91,7 @@ function UpcomingEventCard({ event }: { event: UpcomingEvent }) {
             <span className="relative flex h-2 w-2">
               <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
             </span>
-            <span className="text-xs font-semibold text-white uppercase tracking-wider" style={{ fontFamily: "var(--font-body)" }}>
+            <span className="text-xs font-semibold text-[var(--foreground)] uppercase tracking-wider" style={{ fontFamily: "var(--font-body)" }}>
               Upcoming
             </span>
           </div>
@@ -122,7 +122,7 @@ function UpcomingEventCard({ event }: { event: UpcomingEvent }) {
           
           {/* Title */}
           <h3
-            className="text-4xl md:text-5xl font-black text-white mb-4 tracking-normal"
+            className="text-4xl md:text-5xl font-black text-[var(--foreground)] mb-4 tracking-normal"
             style={{ fontFamily: "var(--font-heading)" }}
           >
             {event.title}
@@ -140,7 +140,7 @@ function UpcomingEventCard({ event }: { event: UpcomingEvent }) {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 py-6 border-y border-white/10">
             {event.stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <span className="block text-xl sm:text-2xl font-black text-white" style={{ fontFamily: "var(--font-heading)" }}>
+                <span className="block text-xl sm:text-2xl font-black text-[var(--foreground)]" style={{ fontFamily: "var(--font-heading)" }}>
                   {stat.value}
                 </span>
                 <span className="text-[9px] uppercase tracking-wider text-white/40" style={{ fontFamily: "var(--font-body)" }}>
@@ -156,7 +156,7 @@ function UpcomingEventCard({ event }: { event: UpcomingEvent }) {
               href={event.registrationLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-acm-blue text-white font-semibold text-sm uppercase tracking-wider transition-all duration-300 hover:bg-acm-blue/90"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-acm-blue text-[var(--foreground)] font-semibold text-sm uppercase tracking-wider transition-all duration-300 hover:bg-acm-blue/90"
               style={{ fontFamily: "var(--font-body)" }}
             >
               <span>Register Now</span>
@@ -174,7 +174,7 @@ function UpcomingEventCard({ event }: { event: UpcomingEvent }) {
               {event.slug && (
                 <Link
                   href={`/events/${event.slug}`}
-                  className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/20 text-white/70 font-semibold text-sm uppercase tracking-wider transition-all duration-300 hover:border-white/40 hover:text-white"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/20 text-white/70 font-semibold text-sm uppercase tracking-wider transition-all duration-300 hover:border-white/40 hover:text-[var(--foreground)]"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   <span>View Details</span>
@@ -203,7 +203,7 @@ function EventCard({ event, index }: { event: EventData; index: number }) {
         initial={{ opacity: 0, y: 30 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.6, delay: (index % 3) * 0.1 }}
-        className="group relative bg-[#0a0a0a] border border-white/5 overflow-hidden transition-all duration-300 hover:border-white/20"
+        className="group relative bg-[var(--surface)] border border-white/5 overflow-hidden transition-all duration-300 hover:border-white/20"
       >
         {/* Event Image */}
         {event.image && (
@@ -214,7 +214,7 @@ function EventCard({ event, index }: { event: EventData; index: number }) {
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--surface)] via-transparent to-transparent" />
             {/* Category Badge */}
             <div className="absolute top-4 left-4">
               <span
@@ -245,7 +245,7 @@ function EventCard({ event, index }: { event: EventData; index: number }) {
           </div>
           
           {/* Title */}
-          <h3 className="text-xl md:text-2xl font-black text-white mb-3 tracking-normal group-hover:text-acm-blue transition-colors" style={{ fontFamily: "var(--font-heading)" }}>
+          <h3 className="text-xl md:text-2xl font-black text-[var(--foreground)] mb-3 tracking-normal group-hover:text-acm-blue transition-colors" style={{ fontFamily: "var(--font-heading)" }}>
             {event.title}
           </h3>
           
@@ -293,7 +293,7 @@ function SectionHeader({ title, subtitle, isUpcoming = false }: { title: string;
           {subtitle}
         </span>
       </div>
-      <h2 className="text-4xl md:text-6xl font-black text-white tracking-normal" style={{ fontFamily: "var(--font-heading)" }}>
+      <h2 className="text-4xl md:text-6xl font-black text-[var(--foreground)] tracking-normal" style={{ fontFamily: "var(--font-heading)" }}>
         <TextReveal text={title} delay={0.1} />
       </h2>
     </motion.div>
@@ -304,7 +304,7 @@ export default function EventsSection() {
   return (
     <section
       id="events"
-      className="relative w-full bg-black overflow-hidden py-24 md:py-32"
+      className="relative w-full bg-[var(--background)] overflow-hidden py-24 md:py-32"
       style={{ zIndex: 10 }}
     >
       {/* Background Glow */}
@@ -334,7 +334,7 @@ export default function EventsSection() {
           <div className="text-center mt-16">
             <a
               href="/events"
-              className="inline-flex items-center gap-3 px-8 py-4 border border-white/15 text-white/60 text-sm uppercase tracking-normalst hover:border-white/30 hover:text-white transition-all"
+              className="inline-flex items-center gap-3 px-8 py-4 border border-white/15 text-white/60 text-sm uppercase tracking-normalst hover:border-white/30 hover:text-[var(--foreground)] transition-all"
               style={{ fontFamily: "var(--font-body)" }}
             >
               <span>View All Events</span>

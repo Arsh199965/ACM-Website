@@ -10,7 +10,7 @@ import {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-[#030303] text-white">
+    <main className="min-h-screen bg-[#030303] text-[var(--foreground)]">
       <AboutHero />
       <AboutMarquee />
       <WhatIsACM />
