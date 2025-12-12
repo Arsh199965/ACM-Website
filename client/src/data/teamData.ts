@@ -77,7 +77,7 @@ export const technicalTeam: TeamMember[] = [
     name: 'Shantanu Ojha',
     role: 'ML Captain',
     category: 'technical',
-    imageUrl: '/team/no-image.webp',
+    imageUrl: '/team/shantanu.webp',
     linkedin: 'https://www.linkedin.com/in/santanu-ojha-a52354292/'
   },
   {
@@ -113,7 +113,7 @@ export const creativeTeam: TeamMember[] = [
     name: 'Shanvi Gulia',
     role: 'Content Captain',
     category: 'creative',
-    imageUrl: '/team/no-image.webp',
+    imageUrl: '/team/shanvi.webp',
     linkedin: 'https://www.linkedin.com/in/shanvi-gulia-7912a9275'
   },
   {
